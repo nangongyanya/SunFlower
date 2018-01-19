@@ -1,0 +1,2 @@
+将maven下的jar包复制到lib目录下
+mvn dependency:copy-dependencies -DoutputDirectory=target/maven-site/WEB-INF/lib  -DincludeScope=runtime

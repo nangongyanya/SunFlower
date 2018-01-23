@@ -1,5 +1,13 @@
 package com.sunflower.common.base;
 
+/**
+ * 查询类基类
+ * 
+ * 类名称：BaseCriteria 创建时间：Jan 20, 2018
+ * 
+ * @version 1.0.0
+ * 
+ */
 public abstract class BaseCriteria {
 
 	public static final int DES = 0;

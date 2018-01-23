@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.sunflower.back.util.AdminUserSessionUtil" %>
+<%
+	request.setAttribute("admin", AdminUserSessionUtil.getAdminSession(session));
+%>
 		<!-- #section:basics/navbar.layout -->
 		<div id="navbar" class="navbar navbar-default ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
@@ -289,8 +294,8 @@
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img class="nav-user-photo" src="/ace/1.4.0/assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
-									<small>Welcome,</small>
-									Jason
+									<small>您好,</small>
+									${admin.nickname}
 								</span>
 		
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -314,7 +319,7 @@
 								<li class="divider"></li>
 		
 								<li>
-									<a href="#">
+									<a href="/system/logout.h">
 										<i class="ace-icon fa fa-power-off"></i>
 										Logout
 									</a>

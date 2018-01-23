@@ -8,11 +8,14 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<!-- 配置Spring IOC 容器 -->   
+	<!-- 配置 Spring IOC 容器和 Spring Security -->   
 	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:/conf/applicationContext.xml</param-value>
-	</context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:/conf/applicationContext.xml
+            classpath:/conf/applicationContext-security.xml
+        </param-value>
+    </context-param>
 	
 	<!-- 配置Spring IOC监听器 -->
 	<listener>
@@ -23,6 +26,30 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+	
+	<!-- 配置编码方式过滤器,注意一点:要配置在所有过滤器的前面 -->
+	<filter>
+		<filter-name>CharacterEncoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Spring Security 过滤器 -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/system/*</url-pattern>
+	</filter-mapping>
 	
 	<!-- 配置前台请求分发器 -->
 	<servlet>
@@ -45,20 +72,6 @@
 		<servlet-name>back</servlet-name>
 		<url-pattern>*.h</url-pattern>
 	</servlet-mapping>
-	
-	<!-- 配置编码方式过滤器,注意一点:要配置在所有过滤器的前面 -->
-	<filter>
-		<filter-name>CharacterEncoding</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>utf-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>CharacterEncoding</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 	
 	<!-- 为了使用SpringMVC框架实现REST风格,需要配置 HiddenHttpMethodFilter,当前项目未使用REST风格的URL -->
 	<!-- <filter>

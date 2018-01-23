@@ -3,12 +3,19 @@ package com.sunflower.common.base;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.util.NumberUtils;
 import org.springframework.util.StringUtils;
 
 import com.sunflower.common.util.ResponseUtil;
 import com.sunflower.common.vo.JsonDetail;
 
+/**
+ * 控制器基类
+ * 
+ * 类名称：BaseController 创建时间：Jan 20, 2018
+ * 
+ * @version 1.0.0
+ * 
+ */
 public abstract class BaseController {
 	
 	public static int default_pager_items = 20; // 每页默认数量为20

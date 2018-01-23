@@ -46,6 +46,14 @@
 				</div><!-- /.sidebar-shortcuts -->
 			
 				<ul class="nav nav-list">
+					<li <c:if test="${fn:startsWith(param.menu, '0-')}">class="active open"</c:if>>
+						<a href="/system/index.h">
+							<i class="menu-icon fa fa-tachometer"></i>
+							<span class="menu-text"> Dashboard </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
 					<li <c:if test="${fn:startsWith(param.menu, '1-')}">class="active open"</c:if>>
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-cog"></i>

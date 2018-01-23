@@ -21,6 +21,13 @@
 		<script src="/ace/1.4.0/components/datatables.net-buttons/js/buttons.print.js"></script>
 		<script src="/ace/1.4.0/components/datatables.net-buttons/js/buttons.colVis.js"></script>
 		<script src="/ace/1.4.0/components/datatables.net-select/js/dataTables.select.js"></script>
+		<script src="/ace/1.4.0/components/_mod/jquery-ui.custom/jquery-ui.custom.js"></script>
+		<script src="/ace/1.4.0/components/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
+		<script src="/ace/1.4.0/components/_mod/easypiechart/jquery.easypiechart.js"></script>
+		<script src="/ace/1.4.0/components/jquery.sparkline/index.js"></script>
+		<script src="/ace/1.4.0/components/Flot/jquery.flot.js"></script>
+		<script src="/ace/1.4.0/components/Flot/jquery.flot.pie.js"></script>
+		<script src="/ace/1.4.0/components/Flot/jquery.flot.resize.js"></script>
 		
 		<!-- ace scripts -->
 		<script src="/ace/1.4.0/assets/js/src/elements.scroller.js"></script>

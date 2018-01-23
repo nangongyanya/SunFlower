@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<!-- http安全配置，当访问被拒绝时，会转到403.jsp -->
+	<http access-decision-manager-ref="adminUserAccessDecisionManager">
+		<intercept-url pattern="/ace/**" filters="none" />
+		<intercept-url pattern="/pages/**" filters="none" />
+		<intercept-url pattern="/uploads/**" filters="none" />
+		<intercept-url pattern="/gu_ess.jsp" filters="none" />
+		<intercept-url pattern="/system/login.h" filters="none" />
+		<intercept-url pattern="/system/logout.h" filters="none" />
+
+		<form-login login-page="/gu_ess.jsp"
+			login-processing-url="/system/j_spring_security_check_new_url"
+			authentication-failure-url="/gu_ess.jsp?error=true"
+			default-target-url="/system/index.h" 
+			always-use-default-target="true" />
+		<logout invalidate-session="true" logout-success-url="/gu_ess.jsp"
+			logout-url="/system/j_spring_security_logout_new_url" />
+		<session-management invalid-session-url="/pages/back/session_time_out.jsp">
+			<concurrency-control max-sessions="10" expired-url="/pages/back/session_time_out.jsp" />
+		</session-management>
+
+		<!-- 添加自定义过滤器，位于FILTER_SECURITY_INTERCEPTOR之前 -->
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="sunCustomFilter" />
+	</http>
+
+	<!-- 一个自定义的filter，必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性， 
+		我们的所有控制将在这三个类中实现，解释详见具体配置 -->
+	<beans:bean id="sunCustomFilter"
+		class="com.sunflower.security.AdminFilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="adminUserAccessDecisionManager" />
+		<beans:property name="securityMetadataSource" ref="adminUserInvocationSecurityMetadataSource" />
+	</beans:bean>
+
+	<!-- 认证管理器，实现用户认证的入口，主要实现UserDetailsService接口即可 -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="adminUserDetailServiceImpl"></authentication-provider>
+	</authentication-manager>
+	<beans:bean id="adminUserDetailServiceImpl" class="com.sunflower.security.AdminUserDetailServiceImpl"/>
+	
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
+    <beans:bean id="adminUserAccessDecisionManager" class="com.sunflower.security.AdminUserAccessDecisionManager"/>
+
+	<!-- 资源数据定义，即定义某一资源可以被哪些角色访问 -->
+	<beans:bean id="adminUserInvocationSecurityMetadataSource"
+		class="com.sunflower.security.AdminUserInvocationSecurityMetadataSource" />
+
+</beans:beans>

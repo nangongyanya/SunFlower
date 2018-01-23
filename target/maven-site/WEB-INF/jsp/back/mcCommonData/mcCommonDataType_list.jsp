@@ -32,11 +32,7 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 							<form class="form-search">
-								<span class="input-icon align-middle">
-									<i class="ace-icon fa fa-search"></i>
-									<input name="typeName" value="${criteria.name }" type="text" class="search-query" placeholder="请输入类型名称关键字..." />
-								</span>
-								<!-- <button class="btn btn-sm" type="submit">搜索</button> -->
+								类型名称：<input name="typeName" value="${criteria.name }" type="text" class="search-query" placeholder="请输入类型名称..." />
 							</form>
 							<div class="hr hr-18 hr-double dotted"></div>
 								

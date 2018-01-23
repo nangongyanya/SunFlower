@@ -9,6 +9,14 @@ import com.sunflower.common.base.BaseJsonData;
 
 import flexjson.JSONSerializer;
 
+/**
+ * http请求返回数据工具类
+ * 
+ * 类名称：ResponseUtil 创建时间：Jan 20, 2018
+ * 
+ * @version 1.0.0
+ * 
+ */
 public class ResponseUtil {
 	public static void html2Response(String string, HttpServletResponse response)
 			throws Exception {
@@ -67,6 +75,7 @@ public class ResponseUtil {
 		json2Response(data.serializeToJSONString(), response);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void json2Response(Map map, HttpServletResponse response)
 			throws Exception {
 		if ((map == null) || (response == null)) {
@@ -77,6 +86,7 @@ public class ResponseUtil {
 		json2Response(string, response);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void json2Response(List list, HttpServletResponse response)
 			throws Exception {
 		if ((list == null) || (response == null)) {

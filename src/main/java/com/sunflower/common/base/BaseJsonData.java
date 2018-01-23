@@ -3,6 +3,14 @@ package com.sunflower.common.base;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Json信息类
+ * 
+ * 类名称：BaseJsonData 创建时间：2018-01-18
+ * 
+ * @version 1.0.0
+ * 
+ */
 public class BaseJsonData extends BaseFlexJson {
 	
 	private Object items = null;

@@ -2,7 +2,16 @@ package com.sunflower.common.base;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
+/**
+ * 基础Dao
+ * 
+ * 类名称：BaseDao 创建时间：Jan 20, 2018
+ * 
+ * @version 1.0.0
+ * 
+ */
 public interface BaseDao<T extends Serializable> {
 
 	/**
@@ -35,7 +44,7 @@ public interface BaseDao<T extends Serializable> {
 	 * 
 	 * @param o
 	 */
-	public void delete(T o);
+	public void deleteAdminMenus(T o);
 
 	/**
 	 * 根据ID删除记录
@@ -91,5 +100,12 @@ public interface BaseDao<T extends Serializable> {
 	 * @return 实体对象
 	 */
 	public T get(Serializable id);
+	
+	/**
+     * 查找所有对象
+     *
+     * @return 对象列表
+     */
+    public List<T> findAll();
 
 }

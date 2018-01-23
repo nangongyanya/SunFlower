@@ -9,9 +9,9 @@
         1.1.1、数据类型
         1.1.2、基础数据
 
-截图：
-列表页：
+    截图：
+    列表页：
 ![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/%E5%88%97%E8%A1%A8%E9%A1%B5.png?raw=true)
 
-编辑页：
+    编辑页：
 ![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/%E7%BC%96%E8%BE%91%E9%A1%B5.png?raw=true)

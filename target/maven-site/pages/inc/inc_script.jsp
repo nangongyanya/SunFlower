@@ -13,6 +13,7 @@
 		<script src="/ace/1.4.0/components/bootstrap/dist/js/bootstrap.js"></script>
 		
 		<!-- page specific plugin scripts -->
+		<!-- 数据列表及表单所需 -->
 		<script src="/ace/1.4.0/components/datatables/media/js/jquery.dataTables.js"></script>
 		<script src="/ace/1.4.0/components/_mod/datatables/jquery.dataTables.bootstrap.js"></script>
 		<script src="/ace/1.4.0/components/datatables.net-buttons/js/dataTables.buttons.js"></script>
@@ -21,6 +22,7 @@
 		<script src="/ace/1.4.0/components/datatables.net-buttons/js/buttons.print.js"></script>
 		<script src="/ace/1.4.0/components/datatables.net-buttons/js/buttons.colVis.js"></script>
 		<script src="/ace/1.4.0/components/datatables.net-select/js/dataTables.select.js"></script>
+		<!-- 控制面板所需 -->
 		<script src="/ace/1.4.0/components/_mod/jquery-ui.custom/jquery-ui.custom.js"></script>
 		<script src="/ace/1.4.0/components/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
 		<script src="/ace/1.4.0/components/_mod/easypiechart/jquery.easypiechart.js"></script>

@@ -6,7 +6,6 @@
 <html lang="en">
 <head>
 <title>基础数据类型管理</title>
-<meta name="description" content="基础数据类型管理" />
 <c:import url="/pages/inc/inc_head.jsp" />
 </head>
 

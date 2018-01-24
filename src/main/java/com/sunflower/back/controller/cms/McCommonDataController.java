@@ -31,7 +31,7 @@ import com.sunflower.common.vo.JsonDetail;
  * 
  */
 @Controller
-@RequestMapping(value = "/system")
+@RequestMapping(value = "/system/cms")
 public class McCommonDataController extends BaseController {
 
 	Logger log = Logger.getLogger(this.getClass());
@@ -76,8 +76,14 @@ public class McCommonDataController extends BaseController {
 		String[] ids = delIds.split(",");
 		for (String id : ids) {
 			if (!StringUtils.isEmpty(id)) {
-				this.mcCommonDataService.deleteMcCommonDataType(Integer
-						.parseInt(id));
+				McCommonDataCriteria criteria = new McCommonDataCriteria();
+				criteria.setType(Integer.parseInt(id));
+				PagedObject po = this.mcCommonDataService.queryMcCommonData(criteria);
+				if (po != null && po.getTotal() > 0) {
+					request.getSession().setAttribute("rs", "该类别下用户基础数据,请先删除基础数据!");
+					return "redirect:mcCommonDataType_list.h";
+				}
+				this.mcCommonDataService.deleteMcCommonDataType(Integer.parseInt(id));
 			}
 		}
 
@@ -85,7 +91,7 @@ public class McCommonDataController extends BaseController {
 		if (!StringUtils.isEmpty(referer)) {
 			return "redirect:" + referer;
 		}
-		return "redirect:/system/mcCommonDataType_list.h";
+		return "redirect:mcCommonDataType_list.h";
 	}
 
 	/**
@@ -150,7 +156,7 @@ public class McCommonDataController extends BaseController {
 			this.mcCommonDataService.updateMcCommonDataType(type);
 		}
 
-		return "redirect:/system/mcCommonDataType_list.h";
+		return "redirect:mcCommonDataType_list.h";
 	}
 
 	@RequestMapping(value = "/mcCommonData_list")
@@ -191,7 +197,7 @@ public class McCommonDataController extends BaseController {
 		if (!StringUtils.isEmpty(referer)) {
 			return "redirect:" + referer;
 		}
-		return "redirect:/system/mcCommonData_list.h";
+		return "redirect:mcCommonData_list.h";
 	}
 
 	@RequestMapping(value = "/ajax_get_mcCommonData", method = RequestMethod.POST)
@@ -251,7 +257,7 @@ public class McCommonDataController extends BaseController {
 		if (!StringUtils.isEmpty(referer)) {
 			return "redirect:" + referer;
 		}
-		return "redirect:/system/mcCommonData_list.h";
+		return "redirect:mcCommonData_list.h";
 	}
 
 }

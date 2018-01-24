@@ -58,7 +58,7 @@
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-cog"></i>
 							<span class="menu-text">
-								设置
+								基础设置
 							</span>
 			
 							<b class="arrow fa fa-angle-down"></b>
@@ -78,7 +78,7 @@
 			
 								<ul class="submenu">
 									<li <c:if test="${fn:startsWith(param.menu, '1-1-1')}">class="active"</c:if>>
-										<a href="/system/mcCommonDataType_list.h">
+										<a href="/system/cms/mcCommonDataType_list.h">
 											<i class="menu-icon fa fa-caret-right"></i>
 											数据类型
 										</a>
@@ -87,9 +87,63 @@
 									</li>
 			
 									<li <c:if test="${fn:startsWith(param.menu, '1-1-2')}">class="active"</c:if>>
-										<a href="/system/mcCommonData_list.h">
+										<a href="/system/cms/mcCommonData_list.h">
 											<i class="menu-icon fa fa-caret-right"></i>
 											基础数据
+										</a>
+			
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					
+					<li <c:if test="${fn:startsWith(param.menu, '2-')}">class="active open"</c:if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-cogs"></i>
+							<span class="menu-text">
+								系统功能
+							</span>
+			
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+			
+						<b class="arrow"></b>
+			
+						<ul class="submenu">
+							<li <c:if test="${fn:startsWith(param.menu, '2-1-')}">class="open"</c:if>>
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+									权限管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+			
+								<b class="arrow"></b>
+			
+								<ul class="submenu">
+									<li <c:if test="${fn:startsWith(param.menu, '2-1-1')}">class="active"</c:if>>
+										<a href="/system/admin/adminUser_list.h">
+											<i class="menu-icon fa fa-caret-right"></i>
+											管理员管理
+										</a>
+			
+										<b class="arrow"></b>
+									</li>
+			
+									<li <c:if test="${fn:startsWith(param.menu, '2-1-2')}">class="active"</c:if>>
+										<a href="/system/mcCommonData_list.h">
+											<i class="menu-icon fa fa-caret-right"></i>
+											角色管理
+										</a>
+			
+										<b class="arrow"></b>
+									</li>
+									
+									<li <c:if test="${fn:startsWith(param.menu, '2-1-3')}">class="active"</c:if>>
+										<a href="/system/mcCommonData_list.h">
+											<i class="menu-icon fa fa-caret-right"></i>
+											功能菜单管理
 										</a>
 			
 										<b class="arrow"></b>

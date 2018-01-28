@@ -50,6 +50,20 @@ public class BaseDaoImpl<T extends Serializable> implements BaseDao<T> {
 	}
 
 	/**
+	 * 清除
+	 */
+	public void clear() {
+		getSession().clear();
+	}
+	
+	/**
+	 * 刷新
+	 */
+    public void flush() {
+    	getSession().flush();
+    }
+    
+	/**
 	 * 保存对象
 	 * 
 	 * @param entity
@@ -213,7 +227,7 @@ public class BaseDaoImpl<T extends Serializable> implements BaseDao<T> {
      */
 	@Override
 	public List<T> findAll() {
-        return getSession().createQuery("from "+getClasses().getName()).list();
+		return getSession().createQuery("from " + getClasses().getName()).list();
     }
 
 	/**

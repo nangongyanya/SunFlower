@@ -15,6 +15,7 @@ import com.sunflower.back.domain.admin.AdminMenus;
 import com.sunflower.back.domain.admin.AdminRole;
 import com.sunflower.back.domain.admin.AdminRoleUrl;
 import com.sunflower.back.domain.admin.AdminUser;
+import com.sunflower.back.domain.admin.AdminUserToRole;
 import com.sunflower.back.service.admin.AdminService;
 import com.sunflower.back.support.admin.AdminRoleCriteria;
 import com.sunflower.back.support.admin.AdminUserCriteria;
@@ -70,9 +71,19 @@ public class AdminServiceImpl implements AdminService {
 	public AdminUser findAdminUserByUsername(String username) {
 		return this.adminUserDao.findByUsername(username);
 	}
+	
+	/**
+	 * 查询管理员列表（无分页）
+	 * 
+	 * @return
+	 */
+	@Override
+	public List<AdminUser> finAdminUserAll() {
+		return this.adminUserDao.findAll();
+	}
 
 	/**
-	 * 查询管理员列表（可分页）
+	 * 查询管理员列表（无分页）
 	 * 
 	 * @param criteria
 	 * @return
@@ -154,6 +165,17 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminRole> finAdminRoleAll(AdminRoleCriteria criteria) {
 		return this.adminRoleDao.finAll(criteria);
 	}
+	
+	/**
+	 * 根据代码查询角色
+	 * 
+	 * @param roleCode
+	 * @return
+	 */
+	@Override
+	public AdminRole findAdminRoleByCode(String roleCode) {
+		return this.adminRoleDao.findByRoleCode(roleCode);
+	}
 
 	/**
 	 * 保存管理员角色
@@ -189,7 +211,7 @@ public class AdminServiceImpl implements AdminService {
 	 */
 	@Override
 	public void deleteAdminUserToRole(Integer adminId) {
-
+		this.adminUserToRoleDao.deleteAdminUserToRole(adminId);
 	}
 
 	/**
@@ -200,16 +222,19 @@ public class AdminServiceImpl implements AdminService {
 	 */
 	@Override
 	public void deleteAdminUserToRole(Integer roleId, Integer adminId) {
-
+		this.adminUserToRoleDao.deleteAdminUserToRole(roleId, adminId);
 	}
-
+	
 	/**
-	 * 根据角色id删除管理员和角色的关系
+	 * 根据adminId、roleId查询两者是否存在对应关系
 	 * 
+	 * @param adminId
 	 * @param roleId
+	 * @return
 	 */
-	public void deleteAdminUserToRoleByRoleId(Integer roleId) {
-
+	@Override
+	public boolean getExistByAdminUserIdAndRoleId(Integer adminId, Integer roleId) {
+		return this.adminUserToRoleDao.getExistByAdminUserIdAndRoleId(adminId, roleId);
 	}
 
 	/**
@@ -221,7 +246,7 @@ public class AdminServiceImpl implements AdminService {
 	 */
 	@Override
 	public List<AdminRole> getListAdminRole(Integer adminId) {
-		return adminUserToRoleDao.getListAdminRole(adminId);
+		return this.adminUserToRoleDao.getListAdminRole(adminId);
 	}
 
 	/**
@@ -232,9 +257,8 @@ public class AdminServiceImpl implements AdminService {
 	 * @throws Exception
 	 */
 	@Override
-	public List<AdminUser> getListAdminUserByRoleId(Integer roleId)
-			throws Exception {
-		return null;
+	public List<AdminUser> getListAdminUserByRoleId(Integer roleId) throws Exception {
+		return this.adminUserToRoleDao.getListAdminUserByRoleId(roleId);
 	}
 
 	/**
@@ -247,28 +271,19 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public PagedObject queryAdminUserByRoleId(Integer roleId,
 			AdminUserToRoleCriteria criteria) {
-		return null;
+		return adminUserToRoleDao.queryAdminUserByRoleId(roleId, criteria);
 	}
 
 	/**
 	 * 保存管理员和角色的关系
 	 * 
-	 * @param roleIds
-	 * @param adminId
+	 * @param obj
 	 */
 	@Override
-	public void saveAdminUserToRole(Integer[] roleIds, Integer adminId) {
-	}
-
-	/**
-	 * 保存管理员和角色的关系
-	 * 
-	 * @param roleId
-	 * @param adminIds
-	 */
-	@Override
-	public void saveAdminUserToRole(Integer roleId, Integer[] adminIds) {
-
+	public void saveAdminUserToRole(AdminUserToRole obj) {
+		obj.setDateAdded(new Date());
+		this.adminUserToRoleDao.save(obj);
+		this.adminUserToRoleDao.flush();
 	}
 
 	/** ************** AdminUserToRole e *************** */

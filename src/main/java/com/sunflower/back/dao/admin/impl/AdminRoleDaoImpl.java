@@ -25,6 +25,21 @@ public class AdminRoleDaoImpl extends BaseDaoImpl<AdminRole> implements
 		AdminRoleDao {
 
 	/**
+	 * 拼凑sql
+	 * 
+	 * @param params
+	 * @param criteria
+	 * @return
+	 */
+	public StringBuilder appSql(Map<String, Object> params,
+			AdminRoleCriteria criteria) {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" from AdminRole ar");
+		sql.append(" where 1 = 1");
+		return sql;
+	}
+	
+	/**
 	 * 查询管理员角色列表（无分页）
 	 * 
 	 * @param criteria
@@ -42,18 +57,24 @@ public class AdminRoleDaoImpl extends BaseDaoImpl<AdminRole> implements
 	}
 
 	/**
-	 * 拼凑sql
+	 * 根据代码查询角色
 	 * 
-	 * @param params
-	 * @param criteria
+	 * @param roleCode
 	 * @return
 	 */
-	public StringBuilder appSql(Map<String, Object> params,
-			AdminRoleCriteria criteria) {
-		StringBuilder sql = new StringBuilder();
-		sql.append(" from AdminRole ar");
-		sql.append(" where 1 = 1");
-		return sql;
-	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public AdminRole findByRoleCode(String roleCode) {
+        StringBuilder sql = new StringBuilder();
+		sql.append("from AdminRole ar where ar.roleCode = :roleCode");
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("roleCode", roleCode);
+		Query q = this.createQuery(sql.toString(), params);
+		List<AdminRole> listAdmin = (List<AdminRole>) q.list();
+        if (listAdmin != null && !listAdmin.isEmpty()) {
+            return listAdmin.get(0);
+        }
+        return null;
+    }
 
 }

@@ -47,7 +47,7 @@ public class McCommonDataController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/mcCommonDataType_list")
-	public String mcCommonDataType_list(ModelMap modelMap,
+	public String mcCommonDataTypeList(ModelMap modelMap,
 			HttpServletRequest request) {
 		String typeName = request.getParameter("typeName");
 
@@ -70,7 +70,7 @@ public class McCommonDataController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/mcCommonDataType_delete")
-	public String mcCommonDataType_delete(ModelMap modelMap,
+	public String mcCommonDataTypeDelete(ModelMap modelMap,
 			HttpServletRequest request) {
 		String delIds = request.getParameter("delIds");
 		String[] ids = delIds.split(",");
@@ -103,7 +103,7 @@ public class McCommonDataController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/ajax_get_mcCommonDataType", method = RequestMethod.POST)
-	public String ajax_get_mcCommonDataType(HttpServletRequest request,
+	public String ajaxGetMcCommonDataType(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		JsonDetail json = new JsonDetail();
@@ -135,7 +135,7 @@ public class McCommonDataController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/mcCommonDataType_update", method = RequestMethod.POST)
-	public String mcCommonDataType_update(ModelMap modelMap,
+	public String mcCommonDataTypeUpdate(ModelMap modelMap,
 			HttpServletRequest request) {
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
@@ -160,7 +160,7 @@ public class McCommonDataController extends BaseController {
 	}
 
 	@RequestMapping(value = "/mcCommonData_list")
-	public String mcCommonData_list(ModelMap modelMap,
+	public String mcCommonDataList(ModelMap modelMap,
 			HttpServletRequest request) {
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
@@ -182,7 +182,7 @@ public class McCommonDataController extends BaseController {
 	}
 
 	@RequestMapping(value = "/mcCommonData_delete")
-	public String mcCommonData_delete(ModelMap modelMap,
+	public String mcCommonDataDelete(ModelMap modelMap,
 			HttpServletRequest request) {
 		String delIds = request.getParameter("delIds");
 		String[] ids = delIds.split(",");
@@ -201,7 +201,7 @@ public class McCommonDataController extends BaseController {
 	}
 
 	@RequestMapping(value = "/ajax_get_mcCommonData", method = RequestMethod.POST)
-	public String ajax_get_mcCommonData(HttpServletRequest request,
+	public String ajaxGetMcCommonData(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		JsonDetail json = new JsonDetail();
@@ -226,7 +226,7 @@ public class McCommonDataController extends BaseController {
 	}
 
 	@RequestMapping(value = "/mcCommonData_update", method = RequestMethod.POST)
-	public String mcCommonData_update(ModelMap modelMap,
+	public String mcCommonDataUpdate(ModelMap modelMap,
 			HttpServletRequest request) {
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");

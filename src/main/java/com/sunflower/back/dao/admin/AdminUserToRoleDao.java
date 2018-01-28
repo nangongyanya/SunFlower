@@ -42,6 +42,15 @@ public interface AdminUserToRoleDao extends BaseDao<AdminUserToRole> {
 	public void deleteAdminUserToRoleByRoleId(Integer roleId);
 
 	/**
+	 * 根据adminId、roleId查询两者是否存在对应关系
+	 * 
+	 * @param adminId
+	 * @param roleId
+	 * @return
+	 */
+	public boolean getExistByAdminUserIdAndRoleId(Integer adminId, Integer roleId);
+	
+	/**
 	 * 根据adminId获取角色列表
 	 * 
 	 * @param adminId
@@ -69,21 +78,5 @@ public interface AdminUserToRoleDao extends BaseDao<AdminUserToRole> {
 	 */
 	public PagedObject queryAdminUserByRoleId(Integer roleId,
 			AdminUserToRoleCriteria criteria);
-
-	/**
-	 * 保存管理员和角色的关系
-	 * 
-	 * @param roleIds
-	 * @param adminId
-	 */
-	public void saveAdminUserToRole(Integer[] roleIds, Integer adminId);
-
-	/**
-	 * 保存管理员和角色的关系
-	 * 
-	 * @param roleId
-	 * @param adminIds
-	 */
-	public void saveAdminUserToRole(Integer roleId, Integer[] adminIds);
 
 }

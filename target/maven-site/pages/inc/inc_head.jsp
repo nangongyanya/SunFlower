@@ -6,10 +6,9 @@
 		<link rel="stylesheet" href="/ace/1.4.0/assets/css/bootstrap.css" />
 		<link rel="stylesheet" href="/ace/1.4.0/components/font-awesome/css/font-awesome.css" />
 
-		<!-- jqGrid plugin styles -->
+		<!-- jquery-ui & bootstrap-datepicker3 -->
 		<link rel="stylesheet" href="/ace/1.4.0/components/_mod/jquery-ui/jquery-ui.css" />
 		<link rel="stylesheet" href="/ace/1.4.0/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="/ace/1.4.0/components/_mod/jqgrid/ui.jqgrid.css" />
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="/ace/1.4.0/assets/css/ace-fonts.css" />

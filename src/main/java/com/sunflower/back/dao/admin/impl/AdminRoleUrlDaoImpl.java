@@ -34,8 +34,7 @@ public class AdminRoleUrlDaoImpl extends BaseDaoImpl<AdminRoleUrl> implements Ad
         Map<String, Object> params = new HashMap<String, Object>();
 		String sql = " from AdminRoleUrl ar where ar.roleId = :roleId";
 		params.put("roleId", roleId);
-		Query query = getSession().createQuery(sql.toString()).setProperties(
-				params);
+		Query query = this.createQuery(sql.toString(), params);
 		return query.list();
     }
     
@@ -49,8 +48,7 @@ public class AdminRoleUrlDaoImpl extends BaseDaoImpl<AdminRoleUrl> implements Ad
     	Map<String, Object> params = new HashMap<String, Object>();
 		String sql = "delete AdminRoleUrl ar where ar.roleId = :roleId";
 		params.put("roleId", roleId);
-		Query query = getSession().createQuery(sql.toString()).setProperties(
-				params);
+		Query query = this.createQuery(sql.toString(), params);
         query.executeUpdate();
     }
 

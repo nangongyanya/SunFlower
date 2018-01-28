@@ -36,8 +36,7 @@ public class AdminUserDaoImpl extends BaseDaoImpl<AdminUser> implements
 		Map<String, Object> params = new HashMap<String, Object>();
 		String sql = " from AdminUser au where au.username = :username";
 		params.put("username", username);
-		Query query = getSession().createQuery(sql.toString()).setProperties(
-				params);
+		Query query = this.createQuery(sql.toString(), params);
 		List<AdminUser> listAdmin = (List<AdminUser>) query.list();
 		if (listAdmin != null && !listAdmin.isEmpty()) {
 			return listAdmin.get(0);
@@ -57,8 +56,7 @@ public class AdminUserDaoImpl extends BaseDaoImpl<AdminUser> implements
 		Map<String, Object> params = new HashMap<String, Object>();
 		StringBuilder sql = this.appSql(params, criteria);
 
-		Query query = getSession().createQuery(sql.toString()).setProperties(
-				params);
+		Query query = this.createQuery(sql.toString(), params);
 		return query.list();
 	}
 

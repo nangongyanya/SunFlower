@@ -1,6 +1,5 @@
 package com.sunflower.back.dao.admin.impl;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,9 +35,8 @@ public class AdminUserToRoleDaoImpl extends BaseDaoImpl<AdminUserToRole>
 	@Override
 	public void deleteAdminUserToRole(Integer adminId) {
 		String sql = "delete from AdminUserToRole where adminId = " + adminId;
-		Query q = this.getSession().createQuery(sql);
+		Query q = this.createQuery(sql.toString(), null);
 		q.executeUpdate();
-		this.getSession().flush();
 	}
 
 	/**
@@ -49,11 +47,12 @@ public class AdminUserToRoleDaoImpl extends BaseDaoImpl<AdminUserToRole>
 	 */
 	@Override
 	public void deleteAdminUserToRole(Integer roleId, Integer adminId) {
-		String sql = "delete from AdminUserToRole where adminId = " + adminId
-				+ " and roleId = " + roleId;
-		Query q = this.getSession().createQuery(sql);
+		Map<String, Object> params = new HashMap<String, Object>();
+		String sql = "delete  from AdminUserToRole aur where aur.adminId = :adminId and aur.roleId = :roleId";
+		params.put("adminId", adminId);
+		params.put("roleId", roleId);
+		Query q = this.createQuery(sql.toString(), params);
 		q.executeUpdate();
-		this.getSession().flush();
 	}
 
 	/**
@@ -63,9 +62,28 @@ public class AdminUserToRoleDaoImpl extends BaseDaoImpl<AdminUserToRole>
 	 */
 	public void deleteAdminUserToRoleByRoleId(Integer roleId) {
 		String sql = "delete from AdminUserToRole where roleId = " + roleId;
-		Query q = this.getSession().createQuery(sql);
+		Query q = this.createQuery(sql.toString(), null);
 		q.executeUpdate();
-		this.getSession().flush();
+	}
+	
+	/**
+	 * 根据adminId、roleId查询两者是否存在对应关系
+	 * 
+	 * @param adminId
+	 * @param roleId
+	 * @return
+	 */
+	@Override
+	public boolean getExistByAdminUserIdAndRoleId(Integer adminId, Integer roleId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		String sql = " from AdminUserToRole aur where aur.adminId = :adminId and aur.roleId = :roleId";
+		params.put("adminId", adminId);
+		params.put("roleId", roleId);
+		Query q = this.createQuery(sql.toString(), params);
+		if (q.list() != null && q.list().size() > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -104,8 +122,9 @@ public class AdminUserToRoleDaoImpl extends BaseDaoImpl<AdminUserToRole>
 		sql.append(" from AdminUserToRole tr, AdminUser r");
 		sql.append(" where r.id = tr.adminId");
 		sql.append(" and tr.roleId = :roleId");
-		Query q = this.getSession().createQuery(sql.toString());
-		q.setInteger("roleId", roleId);
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("roleId", roleId);
+		Query q = this.createQuery(sql.toString(), params);
 		return q.list();
 	}
 
@@ -130,44 +149,5 @@ public class AdminUserToRoleDaoImpl extends BaseDaoImpl<AdminUserToRole>
 		PagedObject po = this.getPagedObject(sql, criteria.getFirstResult(),
 				criteria.getMaximumResultSize(), params);
 		return po;
-	}
-
-	/**
-	 * 保存管理员和角色的关系
-	 * 
-	 * @param roleIds
-	 * @param adminId
-	 */
-	@Override
-	public void saveAdminUserToRole(Integer[] roleIds, Integer adminId) {
-		this.deleteAdminUserToRole(adminId);
-		if (roleIds == null)
-			return;
-		for (Integer roleId : roleIds) {
-			AdminUserToRole po = new AdminUserToRole();
-			po.setAdminId(adminId);
-			po.setRoleId(roleId);
-			po.setDateAdded(new Date());
-			this.getSession().saveOrUpdate(po);
-		}
-	}
-
-	/**
-	 * 保存管理员和角色的关系
-	 * 
-	 * @param roleId
-	 * @param adminIds
-	 */
-	@Override
-	public void saveAdminUserToRole(Integer roleId, Integer[] adminIds) {
-		if (adminIds == null)
-			return;
-		for (Integer adminId : adminIds) {
-			AdminUserToRole po = new AdminUserToRole();
-			po.setAdminId(adminId);
-			po.setRoleId(roleId);
-			po.setDateAdded(new Date());
-			this.getSession().saveOrUpdate(po);
-		}
 	}
 }

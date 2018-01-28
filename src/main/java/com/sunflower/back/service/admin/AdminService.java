@@ -6,6 +6,7 @@ import com.sunflower.back.domain.admin.AdminMenus;
 import com.sunflower.back.domain.admin.AdminRole;
 import com.sunflower.back.domain.admin.AdminRoleUrl;
 import com.sunflower.back.domain.admin.AdminUser;
+import com.sunflower.back.domain.admin.AdminUserToRole;
 import com.sunflower.back.support.admin.AdminRoleCriteria;
 import com.sunflower.back.support.admin.AdminUserCriteria;
 import com.sunflower.back.support.admin.AdminUserToRoleCriteria;
@@ -48,7 +49,14 @@ public interface AdminService {
 	public AdminUser findAdminUserByUsername(String username);
 
 	/**
-	 * 查询管理员列表（可分页）
+	 * 查询管理员列表（无分页）
+	 * 
+	 * @return
+	 */
+	public List<AdminUser> finAdminUserAll();
+	
+	/**
+	 * 查询管理员列表（无分页）
 	 * 
 	 * @param criteria
 	 * @return
@@ -104,6 +112,14 @@ public interface AdminService {
 	 * @return
 	 */
 	public List<AdminRole> finAdminRoleAll(AdminRoleCriteria criteria);
+	
+	/**
+	 * 根据代码查询角色
+	 * 
+	 * @param roleCode
+	 * @return
+	 */
+	public AdminRole findAdminRoleByCode(String roleCode);
 
 	/**
 	 * 保存管理员角色
@@ -139,12 +155,14 @@ public interface AdminService {
 	public void deleteAdminUserToRole(Integer roleId, Integer adminId);
 
 	/**
-	 * 根据角色id删除管理员和角色的关系
+	 * 根据adminId、roleId查询两者是否存在对应关系
 	 * 
+	 * @param adminId
 	 * @param roleId
+	 * @return
 	 */
-	public void deleteAdminUserToRoleByRoleId(Integer roleId);
-
+	public boolean getExistByAdminUserIdAndRoleId(Integer adminId, Integer roleId);
+	
 	/**
 	 * 根据adminId获取角色列表
 	 * 
@@ -177,18 +195,9 @@ public interface AdminService {
 	/**
 	 * 保存管理员和角色的关系
 	 * 
-	 * @param roleIds
-	 * @param adminId
+	 * @param obj
 	 */
-	public void saveAdminUserToRole(Integer[] roleIds, Integer adminId);
-
-	/**
-	 * 保存管理员和角色的关系
-	 * 
-	 * @param roleId
-	 * @param adminIds
-	 */
-	public void saveAdminUserToRole(Integer roleId, Integer[] adminIds);
+	public void saveAdminUserToRole(AdminUserToRole obj);
 
 	/** ************** AdminUserToRole e *************** */
 	

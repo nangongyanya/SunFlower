@@ -48,7 +48,7 @@ public class AdminUserController extends BaseController {
 	 * @since 1.0.0
 	 */
 	@RequestMapping(value = "/adminUser_list")
-	public String list(ModelMap model, HttpServletRequest request)
+	public String adminUserList(ModelMap model, HttpServletRequest request)
 			throws Exception {
 		AdminUserCriteria criteria = new AdminUserCriteria();
 		List<AdminUser> userList = this.adminService.finAdminUserAll(criteria);
@@ -65,7 +65,7 @@ public class AdminUserController extends BaseController {
 	 * @since 1.0.0
 	 */
 	@RequestMapping(value = "/adminUser_delete")
-	public String delete(HttpServletRequest request) throws Exception {
+	public String adminUserDelete(HttpServletRequest request) throws Exception {
 		String delIds = request.getParameter("delIds");
 		AdminUser user = AdminUserSessionUtil.getAdminSession(request);
 		if (!StringUtils.isEmpty(delIds)) {
@@ -95,7 +95,7 @@ public class AdminUserController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/ajax_get_adminUser", method = RequestMethod.POST)
-	public String ajax_get_mcCommonDataType(HttpServletRequest request,
+	public String ajaxGetAdminUser(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		JsonDetail json = new JsonDetail();
@@ -130,7 +130,7 @@ public class AdminUserController extends BaseController {
 	 * @since 1.0.0
 	 */
 	@RequestMapping(value = "/adminUser_update", method = RequestMethod.POST)
-	public String formPost(ModelMap model, HttpServletRequest request) {
+	public String adminUserUpdate(ModelMap model, HttpServletRequest request) {
 		String id = request.getParameter("id");
 		String nickname = request.getParameter("nickname");
 		String username = request.getParameter("username");
@@ -140,7 +140,7 @@ public class AdminUserController extends BaseController {
 		// 判断名称是否已经存在
 		AdminUser adminUser = this.adminService.findAdminUserByUsername(username);
 		if (adminUser != null && !adminUser.getId().toString().equals(id)) {
-			request.getSession().setAttribute("rs", "用户名已存在！");
+			request.getSession().setAttribute("rs", "用户名已存在，请重新添加！");
 			return "redirect:adminUser_list.h";
 		}
 		

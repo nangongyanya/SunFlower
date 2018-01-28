@@ -13,6 +13,16 @@ import java.util.List;
  * 
  */
 public interface BaseDao<T extends Serializable> {
+	
+	/**
+	 * 清除
+	 */
+	public void clear();
+	
+	/**
+	 * 刷新
+	 */
+    public void flush();
 
 	/**
 	 * 保存对象

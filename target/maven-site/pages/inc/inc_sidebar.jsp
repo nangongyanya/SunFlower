@@ -132,7 +132,7 @@
 									</li>
 			
 									<li <c:if test="${fn:startsWith(param.menu, '2-1-2')}">class="active"</c:if>>
-										<a href="/system/mcCommonData_list.h">
+										<a href="/system/admin/adminRole_list.h">
 											<i class="menu-icon fa fa-caret-right"></i>
 											角色管理
 										</a>

@@ -23,5 +23,13 @@ public interface AdminRoleDao extends BaseDao<AdminRole> {
 	 * @return
 	 */
 	public List<AdminRole> finAll(AdminRoleCriteria criteria);
+	
+	/**
+	 * 根据代码查询角色
+	 * 
+	 * @param roleCode
+	 * @return
+	 */
+	public AdminRole findByRoleCode(String roleCode);
 
 }

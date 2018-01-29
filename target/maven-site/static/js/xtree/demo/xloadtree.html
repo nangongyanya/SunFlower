@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<link type="text/css" rel="stylesheet" href="../xtree.css" />
+<script language="javascript" src="../map.js"></script>
+<script language="javascript" src="../xtree.js"></script>
+<script language="javascript" src="../xloadtree.js"></script>
+<script language="javascript" src="../checkboxTreeItem.js"></script>
+<script language="javascript" src="../xmlextras.js"></script>
+<script language="javascript" src="../checkboxXLoadTree.js"></script>
+<script language="javascript" src="../radioTreeItem.js"></script>
+<script language="javascript" src="../radioXLoadTree.js"></script>
+</head>
+<script language="javascript">
+webFXTreeConfig.setImagePath("js/images/");
+webFXTreeConfig.usePersistence = false;
+
+var tree = new WebFXTree("所有权限");
+var L1 = new WebFXTreeItem("公路路况");
+  tree.add(L1); // 可以在任何地方调用add方法加入子节点。
+     L11 = new WebFXTreeItem("路基",null,L1);
+	 L11.setColor("red");
+	 L111 = new WebFXLoadTreeItem("新增路基",'items.xml',"javascript:alert('新增路径')", L11);
+	 L112 = new WebFXTreeItem("修改路基",null, L11);
+	 L113 = new WebFXTreeItem("删除路基");
+var L2 = new  WebFXTreeItem("桥梁管理","javascript:alert('桥梁管理')");
+var L21 = new  WebFXLoadTreeItem("新增桥梁","items.xml","javascript:alert('新增桥梁')", L2); 
+  tree.add(L2); // 可以在任何地方调用add方法加入子节点。
+  L11.add(L113); // 可以在任何地方调用add方法加入子节点。
+ // new  WebFXLoadTreeItem("加载错误XML1","err_item.xml","javascript:alert('新增桥梁')", tree);
+ // new  WebFXLoadCheckBoxTreeItem("加载错误XML2","value2", "err_item.xml",tree);
+ // new  WebFXLoadRadioTreeItem("加载错误XML3","value3", "err_item.xml",tree);  
+</script>
+
+<body>
+<input type="button" value="测试扩展属性" onclick="test()">
+</body>
+
+<script>
+  document.write(tree);
+
+  L111.expand();
+  L1.setColor("red");
+  //L11.expand();
+ // L111.expand();
+
+  //alert(L11.childNodes.length);
+  function test(){
+     var node = getNodeById("mynode");
+	 if(node != null) {
+	     alert(node.myAttr);
+	 }else{
+	     alert("节点还没有加载！");
+	 }
+  }
+</script>
+</html>

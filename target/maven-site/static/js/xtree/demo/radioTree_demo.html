@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+
+<link type="text/css" rel="stylesheet" href="js/xtree.css" />
+<script language="javascript" src="js/xtree.js"></script>
+<script language="javascript" src="js/radioTreeItem.js"></script>
+</head>
+
+<script language="javascript">
+webFXTreeConfig.setImagePath("js/images/");
+
+var tree = new WebFXTree("所有权限","");//WebFXTree
+var L1 = new WebFXRadioTreeItem("公路路况","gl", tree);
+     L11 = new WebFXRadioTreeItem("路基","lj", L1,null,null);	 
+	 L111 = new WebFXRadioTreeItem("新增路基","xzlj");
+	 L11.add(L111);
+	 L112 = new WebFXRadioTreeItem("修改路基","xglj");
+	 L11.add(L112);
+	 L113 = new WebFXRadioTreeItem("删除路基","sclj", L11,null,null);
+
+var L2 = new  WebFXRadioTreeItem("桥梁管理","ql", tree);
+   L21 = new WebFXRadioTreeItem("新增桥梁","xzql", L2, null,null, false, true); 
+</script>
+<body>
+<input type="button" value="button" onclick="test()"><br>
+<div id="div_test"></div>
+</body>
+<script>
+//tree.expand();
+  document.write(tree);
+  tree.expand();
+</script>
+<script language="JavaScript">
+<!--
+function test(){
+   var value = getCheckValue();
+   var text = getCheckText(); 
+
+   var obj = getCheckObject();
+   if(obj != null){ 
+      alert(obj);
+   } else{
+       alert("提醒！ 您没有选择！");
+   }
+}
+
+L1.onchange = doClickNodeRadio;
+L11.onchange = doClickNodeRadio;
+L111.onchange = doClickNodeRadio;
+L112.onchange = doClickNodeRadio;
+
+var preValue;
+function doClickNodeRadio(name, value, checked){
+       if(preValue != null){
+	      alert("你取消了节点选择：" +  preValue);
+	   }
+	   preValue =  name + "-" + value;
+	   alert("你选中了节点：" + preValue);	
+}
+
+//setRadioChecked("xzlj", true);
+//setRadioChecked("xzql", true);
+//disableRadio("lj",true,true);
+//-->
+</script>
+</html>

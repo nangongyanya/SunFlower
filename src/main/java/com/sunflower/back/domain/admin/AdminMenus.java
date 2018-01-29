@@ -14,10 +14,10 @@ import java.util.Set;
 public class AdminMenus implements Serializable {
 
 	private static final long serialVersionUID = 7205001437798380729L;
-	private String id;
+	private Integer id;
 	private String name;
 	private String url;
-	private String sort;
+	private Integer sort;
 	private String description;
 	private Integer parentId;
 	private AdminMenus adminMenus;
@@ -32,11 +32,11 @@ public class AdminMenus implements Serializable {
 		this.status = status;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -56,11 +56,11 @@ public class AdminMenus implements Serializable {
 		this.url = url;
 	}
 
-	public String getSort() {
+	public Integer getSort() {
 		return sort;
 	}
 
-	public void setSort(String sort) {
+	public void setSort(Integer sort) {
 		this.sort = sort;
 	}
 

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+
+<link type="text/css" rel="stylesheet" href="js/xtree.css" />
+<script language="javascript" src="js/map.js"></script>
+<script language="javascript" src="js/xtree.js"></script>
+<script language="javascript" src="js/xloadtree.js"></script>
+<script language="javascript" src="js/checkboxTreeItem.js"></script>
+<script language="javascript" src="js/xmlextras.js"></script>
+<script language="javascript" src="js/checkboxXLoadTree.js"></script>
+<script language="javascript" src="js/radioTreeItem.js"></script>
+<script language="javascript" src="js/radioXLoadTree.js"></script>
+</head>
+
+<script language="javascript">
+webFXTreeConfig.setImagePath("js/images/");
+
+var tree = new WebFXTree ("所有权限","");  //WebFXTree.
+var L1 = new WebFXRadioTreeItem("公路路况","1", tree);
+	 L113 = new WebFXLoadRadioTreeItem("删除路基","ss","items.xml", L1);	 
+	
+
+var L2 = new  WebFXRadioTreeItem("桥梁管理","5", false, tree);
+var L21 = new WebFXLoadRadioTreeItem("动态加载子节点1","ddd","items.xml", L2);
+</script>
+<body>
+<input type="button" value="测试按钮" onclick="test()"><br>
+<div id="div_test"></div>
+
+
+
+</body>
+
+<script>
+  document.write(tree);
+  tree.expand();
+</script>
+</html>
+<script language="JavaScript">
+<!--
+function test(){
+   // 示例获取选中节点的各种值。
+   var value = getCheckValue();
+   var text = getCheckText();
+   alert(value + "-" + text);
+
+   var obj = getCheckObject();
+   if(obj != null){
+      alert("您选中节点：　" + obj);
+   }
+}
+disableRadio("5",true,true);
+
+var preValue;
+function doClickNodeRadio(name, value, checked){
+       if(preValue != null){
+	      alert("你取消了节点选择：" +  preValue);
+	   }
+	   preValue =  name + "-" + value;
+	   alert("你选中了节点：" + preValue);	
+}
+//-->
+</script>
+
+
+

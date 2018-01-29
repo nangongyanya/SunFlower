@@ -34,7 +34,7 @@
 				<!-- #section:basics/navbar.dropdown -->
 				<div class="navbar-buttons navbar-header pull-right" role="navigation">
 					<ul class="nav ace-nav">
-						<li class="grey dropdown-modal">
+						<!-- <li class="grey dropdown-modal">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-tasks"></i>
 								<span class="badge badge-grey">4</span>
@@ -287,7 +287,7 @@
 									</a>
 								</li>
 							</ul>
-						</li>
+						</li> -->
 		
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue dropdown-modal">
@@ -302,7 +302,7 @@
 							</a>
 		
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								<li>
+								<!-- <li>
 									<a href="#">
 										<i class="ace-icon fa fa-cog"></i>
 										Settings
@@ -316,7 +316,7 @@
 									</a>
 								</li>
 		
-								<li class="divider"></li>
+								<li class="divider"></li> -->
 		
 								<li>
 									<a href="/system/logout.h">

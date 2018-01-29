@@ -60,7 +60,7 @@ public class AdminMenusDaoImpl extends BaseDaoImpl<AdminMenus> implements
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<AdminMenus> findAdminMenusFirst() {
-		String hql = "from AdminMenus am where am.adminMenus.id is null order by m.sort";
+		String hql = "from AdminMenus am where am.parentId is null order by am.sort";
 		Query q = this.createQuery(hql.toString(), null);
 		return q.list();
 	}

@@ -141,7 +141,7 @@
 									</li>
 									
 									<li <c:if test="${fn:startsWith(param.menu, '2-1-3')}">class="active"</c:if>>
-										<a href="/system/mcCommonData_list.h">
+										<a href="/system/admin/adminMenu_index.h">
 											<i class="menu-icon fa fa-caret-right"></i>
 											功能菜单管理
 										</a>

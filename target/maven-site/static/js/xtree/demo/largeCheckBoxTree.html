@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<script language="javascript" src="js/xtree.js"></script>
+<script language="javascript" src="js/map.js"></script>
+<script language="javascript" src="js/checkboxTreeItem.js"></script>
+ <script language="javascript" src="js/radioTreeItem.js"></script> 
+<link type="text/css" rel="stylesheet" href="js/xtree.css" />
+</head>
+<script language="javascript">
+webFXTreeConfig.setImagePath("js/images/");
+
+var d1 = new Date();
+
+
+var tree = new WebFXTree("所有权限","");//WebFXTree   
+//WebFXCheckBoxTreeItem     WebFXTreeItem   WebFXRadioTreeItem
+var L1 = new WebFXTreeItem("公路路况","gl", tree);
+var L11;
+var I=5, J=300, K=60;
+for(var i=I; i>0; i--){
+	L11 = new WebFXTreeItem("节点"+i, "value" + i,  L1);
+	for(var k=K; k>0; k--){
+		var s = "_" + i + "_" + k;
+		new WebFXCheckBoxTreeItem("节点"+ s, "value" + s,  L11);
+	}
+ }
+
+var L2 = new  WebFXTreeItem("桥梁管理","ql", tree);
+for(var j=J; j>0; j--){
+	new WebFXRadioTreeItem("节点"+j, "value" + j, L2);
+ }
+</script>
+<body>
+<input type="button" value="button" onclick="test()"><br><br>
+<div id="div_test" border='1'></div>
+<hr>
+</body>
+<script>
+  document.write(tree);
+ tree.expand();
+
+  var d2 = new Date();
+  
+  var str =  "节点数: " + (I*K + J) ;
+  str += "&nbsp;&nbsp;&nbsp;花费时间：" + (d2.getTime() - d1.getTime())/1000 + " 秒"
+  document.all.div_test.innerHTML = str;
+</script>
+<script language="JavaScript">
+<!--
+function test(){
+   var values = getCheckValues();
+   
+   var str = getCheckTexts(true);
+   alert(str);
+
+   //alert(getCheckObjects());
+}
+setCheckBox('ql', true, false);
+disableCheckBox("ql",true, false);
+
+
+//visiableCheckBox(false);
+//visiableCheckBox(true);
+//-->
+</script>
+</html>

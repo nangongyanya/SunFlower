@@ -19,7 +19,6 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import org.springframework.security.web.util.AntUrlPathMatcher;
 import org.springframework.security.web.util.UrlMatcher;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.sunflower.back.domain.admin.AdminMenus;
 import com.sunflower.back.domain.admin.AdminRole;
@@ -96,7 +95,7 @@ public class AdminUserInvocationSecurityMetadataSource implements FilterInvocati
             else { 
                 List<AdminRoleUrl> urlList = this.adminService.findAdminRoleUrlByRoleId(adminrole.getId().toString());
                 for (AdminRoleUrl url : urlList) {
-                    AdminMenus menu = this.adminService.findAdminMenus(url.getMenuId());
+                    AdminMenus menu = this.adminService.findAdminMenus(Integer.parseInt(url.getMenuId()));
                     
                     if (menu == null) {
                     	continue;

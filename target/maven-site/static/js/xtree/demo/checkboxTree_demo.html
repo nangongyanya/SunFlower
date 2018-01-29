@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+
+<script language="javascript" src="js/xtree.js"></script>
+<script language="javascript" src="js/map.js"></script>
+<script language="javascript" src="js/checkboxTreeItem.js"></script>
+<link type="text/css" rel="stylesheet" href="js/xtree.css" />
+      
+    
+</head>  
+<script language="javascript">
+webFXTreeConfig.setImagePath("js/images/");
+var tree = new WebFXTree("所有权限","");//WebFXTree
+var L1 = new WebFXCheckBoxTreeItem("公路路况","gl", tree);
+     L11 = new WebFXCheckBoxTreeItem("路基",null, L1,null,null);
+	 L111 = new WebFXCheckBoxTreeItem("新增路基","xzlj", L11,null,null);
+	 L112 = new WebFXCheckBoxTreeItem("修改路基","xglj", L11,null,null);
+	 L113 = new WebFXCheckBoxTreeItem("删除路基","sclj", L11,null,null, true,null);
+
+var L2 = new  WebFXCheckBoxTreeItem("桥梁管理","ql", tree);
+   L21 = new WebFXCheckBoxTreeItem("新增桥梁","xzql", L2, null,null);
+</script>
+<body>
+<input type="button" value="显示选中的节点" onclick="test()">&nbsp;&nbsp;
+<input type="button" value="toggle 级联选择" onclick="webFXTreeConfig.cascadeCheck = !webFXTreeConfig.cascadeCheck">&nbsp;&nbsp;
+<input type="button" value="移动节点" onclick="testMove()"><br>
+<div id="div_test"></div>
+</body>
+<script>
+  document.write(tree);
+  tree.expand();
+</script>
+<script language="JavaScript">
+<!--  
+function test(){   
+   ///var values = getCheckValues();  
+   //var texts = getCheckTexts();
+   var objs = getCheckObjects(false);
+   alert(objs);
+   //var str = (getCheckText(values));
+   //alert(str);
+   //alert(values.length + "      checked:" + values);
+
+   //alert(document.cookie);
+}
+
+setCheckBox('ql', true, true);
+disableCheckBox("ql",true, true);
+
+L113.setId("aaaaaaaaaaaaaa");
+
+L1.onchange = doClickNodeCheckBox;
+L111.onchange = doClickNodeCheckBox;
+ 
+function doClickNodeCheckBox(name, value, checked){    	   
+    if(checked){
+	   alert("你选中了节点：" + name + "-" + value);
+	}else{
+	   alert("你取消了节点选择：" + name + "-" + value);
+	} 	
+}
+
+
+function testMove(){
+    L11.move(L2);
+	L21.move(L1);
+}
+//visiableCheckBox(false);
+//visiableCheckBox(true);
+//-->
+</script>
+</html>

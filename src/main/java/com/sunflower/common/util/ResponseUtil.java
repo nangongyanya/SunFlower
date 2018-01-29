@@ -48,6 +48,13 @@ public class ResponseUtil {
 		response.getWriter().write(string);
 	}
 
+	/**
+	 * xml转response
+	 * 
+	 * @param string
+	 * @param response
+	 * @throws Exception
+	 */
 	public static void xml2Response(String string, HttpServletResponse response)
 			throws Exception {
 		if ((string == null) || (response == null)) {
@@ -59,6 +66,13 @@ public class ResponseUtil {
 		response.getWriter().write(string);
 	}
 
+	/**
+	 * json转response
+	 * 
+	 * @param string
+	 * @param response
+	 * @throws Exception
+	 */
 	public static void json2Response(String string, HttpServletResponse response)
 			throws Exception {
 		if ((string == null) || (response == null)) {

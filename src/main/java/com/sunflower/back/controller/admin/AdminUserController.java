@@ -24,7 +24,7 @@ import com.sunflower.common.vo.JsonDetail;
 /**
  * 管理员Controller
  * 
- * 类名称：AdminUserController 创建时间：Jan 29, 2013
+ * 类名称：AdminUserController 创建时间：Jan 29, 2018
  * 
  * @version 1.0.0
  * 

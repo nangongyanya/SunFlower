@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<script src="js/Map.js"></script>
+</head>
+<body>
+key:
+<input type="text" value="" name="key">
+<br>
+value:
+<input type="text" value="" name="value_input">
+<br>
+<input type="button" value="¼ÓÈë" onclick="add()">
+<input type="button" value="É¾³ý" onclick="remove()">
+<input type="button" value="²âÊÔ" onclick="test()">
+<input type="button" value="²âÊÔ2" onclick="test2()">
+</body>
+</html>
+  
+<script language="JavaScript">
+<!--
+var map = new Map();
+function add(){
+  var key  = document.all.key.value;
+  var value = document.all.value_input.value;
+  map.put(key, value);
+}
+
+function remove(){
+  var key  = document.all.key.value;  
+  map.remove(key); 
+}
+
+function test(){
+  alert(map.values + "  size()=" + map.size() + "  0Î»ÖÃ:"+ map.get(0));
+  //alert(map.getValues());
+  // alert(map.size());
+}
+
+function test2(){
+var a = new Array();
+  alert(map.get(a));
+  //alert(map.getValues());
+  // alert(map.size());
+}
+
+
+//-->
+</script>

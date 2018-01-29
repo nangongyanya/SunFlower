@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<link type="text/css" rel="stylesheet" href="js/xtree.css" />
+<script language="javascript" src="js/map.js"></script>
+<script language="javascript" src="js/xtree.js"></script>
+<script language="javascript" src="js/xloadtree.js"></script>
+<script language="javascript" src="js/xmlextras.js"></script>
+<script language="javascript" src="js/radioTreeItem.js"></script>
+<script language="javascript" src="js/radioXLoadTree.js"></script>
+<script language="javascript" src="js/checkboxTreeItem.js"></script>
+<script language="javascript" src="js/checkboxXLoadTree.js"></script>
+</head>
+
+<script language="javascript">
+webFXTreeConfig.setImagePath("js/images/");
+
+var tree = new WebFXTree("所有类型节点树","");
+var L1 = new WebFXTreeItem("静态普通节点","javascript:void(0)", tree);
+var L2 = new WebFXLoadTreeItem("动态普通节点","items.xml","",tree);
+
+var L3 = new WebFXCheckBoxTreeItem("静态CheckBox节点 + Radio节点", "1", false, tree);
+var L10 = new WebFXLoadRadioTreeItem("动态Radio节点", "10", 'items.xml' , false, L3);
+var L4 = new WebFXLoadCheckBoxTreeItem("动态CheckBox节点","2","items.xml", false, tree);
+
+var L5 = new WebFXRadioTreeItem("静态Radio节点", "3", false, tree);
+var L6 = new WebFXLoadRadioTreeItem("动态Radio节点","4","items.xml", false, tree);
+
+</script>
+<body>
+<br>
+<div id=""><b>混合了各种节点的树</b></div><br>
+</body>
+<script>
+  document.write(tree);
+  tree.expand();
+</script>

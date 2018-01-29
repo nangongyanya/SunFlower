@@ -11,6 +11,7 @@
 	<http access-decision-manager-ref="adminUserAccessDecisionManager">
 		<intercept-url pattern="/ace/**" filters="none" />
 		<intercept-url pattern="/pages/**" filters="none" />
+		<intercept-url pattern="/static/**" filters="none" />
 		<intercept-url pattern="/uploads/**" filters="none" />
 		<intercept-url pattern="/gu_ess.jsp" filters="none" />
 		<intercept-url pattern="/system/login.h" filters="none" />

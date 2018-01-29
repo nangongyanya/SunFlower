@@ -208,13 +208,55 @@ public interface AdminService {
 	 * @param id
 	 * @return
 	 */
-	public AdminMenus findAdminMenus(String id);
+	public AdminMenus findAdminMenus(Integer id);
 	
 	/**
 	 * 获得所有系统菜单
 	 * @return
 	 */
 	public List<AdminMenus> findAdminMenusAll();
+	
+	/**
+	 * 获取顶级系统功能列表
+	 * 
+	 * @return
+	 */
+	public List<AdminMenus> findAdminMenusFirst();
+	
+	/**
+	 * 删除系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+    public void removeAdminMenus(Integer id);
+
+    /**
+	 * 删除系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+    public void removeAdminMenus(String[] ids);
+	/**
+	 * 保存系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+    public Integer saveAdminMenus(AdminMenus obj);
+    
+	/**
+	 * 更新系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+    public void updateAdminMenus(AdminMenus obj);
 	
 	/** ************** AdminMenus e *************** */
 	

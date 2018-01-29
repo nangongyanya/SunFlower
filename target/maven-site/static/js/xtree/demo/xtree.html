@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<link type="text/css" rel="stylesheet" href="../xtree.css" />
+<script language="javascript" src="../xtree.js"></script>
+</head>
+<script language="javascript">
+webFXTreeConfig.setImagePath("../images/");
+
+var tree = new WebFXTree("所有权限", "alert('树根')");
+tree.setColor("red");
+var L1 = new WebFXTreeItem("公路路况[123]",'');
+     L11 = new WebFXTreeItem("路基",'');
+	 L1.add(L11); // 可以在任何地方调用add方法加入子节点。
+
+	 // 也可以使用构造函数传入父节点。
+	 L111 = new WebFXTreeItem("新增路基","JavaScript:alert('新增路基')", L11);
+	 L112 = new WebFXTreeItem("API 帮助","xTree API.html", L11);
+	 L113 = new WebFXTreeItem("删除路基",null, L11);
+
+var L2 = new  WebFXTreeItem("桥梁管理","javascript:alert('桥梁管理')");
+var L21 = new  WebFXTreeItem("桥梁管理","javascript:alert('桥梁管理')", L2);
+tree.add(L1); // 可以在任何地方调用add方法加入子节点。
+tree.add(L2); // 可以在任何地方调用add方法加入子节点。
+var nodeA = new  WebFXTreeItem("设置名称的节点");
+nodeA.setId("nodeA");  //  example for using setId() method. 
+nodeA.setColor("red");
+tree.add(nodeA);
+</script>
+
+<body>
+<input type="button" value="删除Cookie, 清除节点的展开状态" onclick="webFXTreeHandler.cookies.deleteCookie(); location.reload()">&nbsp; 
+<input type="button" value="Cookie值" onclick="alert(document.cookie)">&nbsp;&nbsp;
+<input type="button" value="移动节点" onclick="testMove()">
+<br>
+
+<input type="text" value="输入节点新名称" name="newName">
+<input type="button" value="改变节点名称和颜色" onclick="setName()"><br>
+
+</body>
+<script>
+function setName(){
+   var txt = document.getElementById("newName").value;
+   var node = getNodeById("nodeA");  // Notice: example for using getNodeById('id') method.
+   node.setText("普通节点：" + txt);
+   tree.setText("树根：" + txt);
+   node.setColor("blue");
+}
+
+  document.write(tree);
+  tree.expand();
+  L113.expand();
+
+function testMove(){
+    L11.move(L1);
+	L21.move(nodeA);
+}
+</script>
+</html>

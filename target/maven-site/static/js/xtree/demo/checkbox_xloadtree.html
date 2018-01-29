@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<link type="text/css" rel="stylesheet" href="js/xtree.css" />
+<script language="javascript" src="js/map.js"></script>
+<script language="javascript" src="js/xtree.js"></script>
+<script language="javascript" src="js/xloadtree.js"></script>
+<script language="javascript" src="js/checkboxTreeItem.js"></script>
+<script language="javascript" src="js/xmlextras.js"></script>
+<script language="javascript" src="js/checkboxXLoadTree.js"></script>
+<script language="javascript" src="js/radioTreeItem.js"></script>
+<script language="javascript" src="js/radioXLoadTree.js"></script>
+
+</head>
+             
+<script language="javascript"> 
+webFXTreeConfig.setImagePath("js/images/");
+
+var tree = new WebFXTree ("所有权限","");//WebFXTree
+var L21 = new WebFXLoadCheckBoxTreeItem("动态加载子节点1","ddd","items.xml", tree);
+</script>
+<body>
+<input type="button" value="button" onclick="test()"><br>
+<div id="div_test"></div>
+
+
+
+</body>
+
+<script>
+  document.write(tree);
+  tree.expand();
+</script>
+</html>
+<script language="JavaScript">
+<!--
+function test(){
+   var values = getCheckValues();
+   for(var i=0; i<values.length; i++){ 
+      //alert(getCheckText(values[i]));
+   }
+
+   var str = (getCheckTexts(true));
+   alert(str);
+   alert(getCheckObjects());
+}
+
+L1.onchange = doClickNodeCheckBox;
+L11.onchange = doClickNodeCheckBox;
+L113.onchange = doClickNodeCheckBox;
+
+function doClickNodeCheckBox(){   // 定义成 doClickNodeCheckBox(name, value, checked) 也可。
+    var name = arguments[0]; // 第一个参数。
+	var value = arguments[1]; // 第二个参数。
+	var checked = arguments[2]; // 第三个参数。
+    if(checked){
+	   alert("你选中了节点：" + name + "-" + value);
+	}else{
+	   alert("你取消了节点选择：" + name + "-" + value);
+	}
+}
+
+//setCheckBox("1",true, true);
+//disableCheckBox("1",true, true);
+
+//-->
+</script>
+
+
+

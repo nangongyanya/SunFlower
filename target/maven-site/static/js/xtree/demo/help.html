@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>帮助 </title>
+</head>
+
+<style type="text/css">
+  td{
+    font-family: Sylfaen;
+	font-size: 15;   
+	color: black;
+	font-weight: thin;
+  }
+
+  span{
+  color:red;
+  font-weight:bold;
+  }
+</style>
+
+<body>
+<table width="98%" border="1" cellspacing="1" cellpadding="1" style="font-family:宋体;font-size:16;font-weight:8">
+
+
+<tr>
+	<td style="font-size:18;font-weight:blod;color:blue" align="center">	  
+	   eXTree 2.1  开发帮助文档   <br>
+	    Toone  Corporation  &nbsp;    Apollo  &nbsp;   2006.05.15    
+		<BR>
+	</td>
+</tr>
+
+
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">动态树xml文件&lt;tree  ...  /&gt;元素的属性有：  </span>
+	</td>
+</tr>
+<tr>
+	<td style="font-weight:bold"><br> 	
+	   公共的：id, text, src, type, icon, openIcon, color <br>
+	   普通树节点：action, target <br>
+	   单选(radio)、多选(checkbox)树节点：value, checked, disabled, onchange <br><BR>
+	   注意：在Version 2.1中新增了自定义属性功能，自定义属性的名称不能和这里的属性同名。
+	   <br>
+	</td>
+</tr>
+
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">version 2.1  更新：  </span>
+	</td>
+</tr>
+<tr>
+	<td><b>新增树节点对象方法</b><br> 	
+	<span style="color:red;font-weight:bold">setColor(color)、getColor()：</span>  
+	设置/获取节点的文本颜色。<br>
+	文本颜色默认是黑色("black")，由webFXTreeConfig.defaultColor属性定义。
+	setColor方法对disabled的节点也有效。
+   如：将节点设为红色 node.setColor("red"); 动态加载节点可以在xml文件中指定color属性。<br>	
+   <BR>
+	<span style="color:red;font-weight:bold">树节点对象增加自定义属性：</span>
+	这一特性主要是用于动态加载树，通过xml文件
+    指定节点的自定义属性，<font style='font-weight:bold'>注意自定义属性名不能和已有的关键字同名</font>。<BR>如：
+    &lt;tree id="nodeId" text="nodeName"  myAttrName="myAttrValue"/&gt;<BR>
+    该节点加载后，可以通过 getNodeById("nodeId").myAttrName 获取值 "myAttrValue"。<BR>
+    静态节点可以直接支持自定义属性：node.myAttrName = "myAttrValue"。<br><br>
+
+	<span style="color:red;font-weight:bold">move(parentNode, index) ：</span>
+	将节点移动为指定节点的子节点。
+    如：nodeA.move(nodeB); 节点nodeA（及其子节点，如有的话）将移动成为节点nodeB的
+    最后一个子节点。
+    目前只能移动成为最后一个子节点，不能指定索引位置(即index参数目前无效)，这是一个缺陷。
+	<br><br>
+
+    <span style="color:red;font-weight:bold">onchange事件属性：</span>
+	这个属性指向一个JavaScript方法，当鼠标单击radio、checkbox时，
+    会触发这个事件，执行指定的JS方法。
+    动态加载树在xml文件中指定这个属性。&lt;tree onchange="doMyFunction"/&gt;<BR><BR>
+
+	<span style="color:red;font-weight:bold">增强了节点的expand()：</span>
+	 当调用节点的expand()方法时，自动展开其祖先节点。
+     动态加载节点的expand()方法还有些小问题，要 webFXTreeConfig.userPersistence=false。
+	</td>
+</tr>
+
+
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">version 2.0  新增方法：  </span>
+	</td>
+</tr>
+<tr>
+	<td><b>新增树节点对象方法</b><br> 	
+	<span style="color:red;font-weight:bold">setId(id)和getId()：</span>  设置节点  的Id属性，将业务对象和树节点进行关联。
+        对于动态树，可以在xml文件中指定id值。id属性不是必要的，可以不设置。<br>	
+	<span style="color:red;font-weight:bold">setText(txt)：</span>设置节点对象的显示名称，方便不刷新整棵树而改变树节点名称。<br><br>
+
+	<b>其它：</b><br> 	
+	<span style="color:red;font-weight:bold">getNodeById(id)：</span>这是全局方法， 通过id获取树节点对象。要和 setId() 方法配合使用。<br><br>
+	动态树：在配置文件中 &lt;tree /&gt; 元素增加<span>type属性</span>，指定这个节点的类型，
+   可以取值<span>normal, check, radio</span>三者之一（注意：区分大小写，只能是小写），
+   分别表示“一般类型”、“checkbox类型”、“radiobutton类型”。
+   当不指定 type属性时，节点的类型与它的父节点类型相同。
+	</td>
+</tr>
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">树属性定义对象：</span>
+	</td>
+</tr>
+<tr>
+	<td><b>webFXTreeConfig</b> : 定义了树的一些属性.<br> 
+	&nbsp;&nbsp;这个对象在xtree.js文件的开头定义，可以对其属性进行修改，个性化自己的树。<br>
+	增加的方法/属性：<br>
+	<span style="color:red;font-weight:bold">方法：setImagePath(path)：</span>设置eXtree所用的图片路径，如：webFXTreeConfig.setImagePath("/extree/images");<br>
+	<span style="color:red;font-weight:bold">cascadeCheck：</span>boolean, 定义CheckBox树是否级联选择<br>
+	</td>
+</tr>
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">树根对象：</span>
+	</td>
+</tr>
+<tr>
+	<td>
+	   <b>WebFXTree</b> : 树的根节点对象.任何的树都可以使用它作为根节点.<br>
+	      &nbsp;&nbsp; 构造函数: WebFXTree(sText, sAction, sBehavior, sIcon, sOpenIcon)<br><br>
+       <b>WebFXLoadTree:</b>  树的根节点对象, 同WebFXTree的区别是它的子结点在sXmlSrc指定,展开这个节点时才加载.<br>
+		 &nbsp;&nbsp;  构造函数: WebFXLoadTree(sText, sXmlSrc, sAction, sBehavior, sIcon, sOpenIcon) <br><br>
+		 <b>WebFXCheckBoxLoadTree</b>: 动态加载带CheckBox子结点的树根对象。<br>
+		 WebFXCheckBoxLoadTree(sText, sXmlSrc, sAction, sBehavior, sIcon, sOpenIcon)<br><br>
+		 <b>WebFXRadioLoadTree</b>: 动态加载带Radio子结点的树根对象。<br>
+		 WebFXRadioLoadTree(sText, sXmlSrc, sAction, sBehavior, sIcon, sOpenIcon)
+	</td>
+</tr>
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">节点基类：</span>
+	</td>
+</tr>
+<tr>
+	<td><b>WebFXTreeItem</b> : 树中的节点对象.<br> 
+	&nbsp;&nbsp;构造函数: WebFXTreeItem(sText, sAction, eParent, sIcon, sOpenIcon)<br><br>
+        <b>WebFXLoadTreeItem:</b> 动态加载子节点的节点对象.<br>
+	  &nbsp;&nbsp;构造函数: WebFXLoadTreeItem(sText, sXmlSrc, sAction, eParent, sIcon, sOpenIcon)<br>
+	</td>
+</tr>
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">CheckBox 树：</span>
+	</td>
+</tr>
+<tr>
+	<td> <b>WebFXCheckBoxTreeItem</b> : 带CheckBox的节点.<br>
+	&nbsp;&nbsp; 构造函数: <span style="color:red">WebFXCheckBoxTreeItem(sText, sValue, eParent, sIcon, sOpenIcon, bChecked, disabled)</span><br>
+     &nbsp;&nbsp;部分参数说明:&nbsp;sValue: checkbox 的value值.&nbsp; bChecked: 是否选中, 缺省为false.
+	 &nbsp;&nbsp;disabled: 是否禁用,缺省为false.<br><br>
+      <b>WebFXLoadCheckBoxTreeItem</b> : 带CheckBox的、动态加载子结点的节点.<br>
+	 &nbsp;&nbsp;构造函数：<span style="color:red">WebFXLoadCheckBoxTreeItem(sText, sValue, sXmlSrc, eParent, sIcon, sOpenIcon, bChecked, disabled)</span><br><br>
+	 提供的配套方法：<br><br>
+	// 获取所有的选中CheckBox的值，返回值是数组. <br>
+    // includeDisabled 是否包括disabled状态的CheckBox, 默认值是false.<br>
+	// 没有选中任何节点将返回长度为零的数组。<br>
+    <b>function getCheckValues(includeDisabled)</b><br><br>
+
+	// 获取所有的选中CheckBox的文本，返回值是数组.<br>
+	// includeDisabled 是否包括disabled状态的CheckBox, 默认值是false.<br>
+	// 没有选中任何节点将返回长度为零的数组。<br>
+    <b style="color:red">function getCheckTexts(includeDisabled)</b> <br><br>
+	
+	// 获取所有的选中的对象，对象的属性有：id, text, value，返回值是数组.<br>
+	// includeDisabled 是否包括disabled状态的CheckBox, 默认值是false.<br>
+	// 没有选中任何节点将返回长度为零的数组。<br>
+    <b style="color:red">function getCheckObjects(includeDisabled)</b> <br><br>
+
+	// 设置值等于value的CheckBox的选中状态. recursive:是否递归，缺省为false.<br>
+	// 如果指定了recursive为true，它的子结点中diabled为true的节点状态不会改变。<br>
+	// 在动态树中，如果指定了recursive为true，对还没加载的节点将不起作用。<br>
+	// <span style="color:red">如果webFXTreeConfig.cascadeCheck 属性为 false，recursive参数将失效。</span><br>
+    <b>function setCheckBox(value, checked, recursive)</b><br><br>
+
+	// 设置值等于value的CheckBox的禁用状态.<br>
+	// 在动态树中，如果指定了recursive为true，对还没加载的节点将不起作用。<br>
+   <b>function disableCheckBox(value, disabled, recursive)</b><br><br>
+
+   // 隐藏或显示所有的CheckBox.<br>
+   <b>function visiableCheckBox(visiable)</b>
+	</td>
+</tr>
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">Radio 树：</span>
+	</td>
+</tr>
+<tr>
+	<td><b>WebFXRadioTreeItem</b>: 带Radio的树节点。<br>
+	&nbsp;&nbsp;构造函数：<span style="color:red">WebFXRadioTreeItem(sText, sValue, eParent, sIcon, sOpenIcon, bChecked, disabled)</span> <br><br>
+
+	<b>WebFXLoadRadioTreeItem</b>: 带Radio的、动态加载的树节点。<br> 
+	&nbsp;&nbsp;构造函数：<span style="color:red">WebFXLoadRadioTreeItem(sText, sValue, sXmlSrc, eParent, sIcon, sOpenIcon, bChecked, disabled) </span><br><br>
+
+	提供的配套方法：<br><br>
+
+	// 获取选中的节点值和文本.返回的是对象，有<span style="color:red">id</span>, value, text属性。<br>
+	// 没有选中任何节点将返回null.<br>
+<b>function getCheckObject()</b><br><br>
+
+// 获取所有的选中radio的值. 没有选中返回null.<br>
+<b>function getCheckValue()</b><br><br>
+// 返回选中radio的文本。没有选中返回null.<br>
+
+<b>function getCheckText()</b><br><br>
+// 设置值等于value的Radio的选中状态.<br>
+<b>function setRadioChecked(value, checked)</b><br><br>
+// 设置值为value的Radio的可用状态.同disableCheckBox() 方法。<br>
+<b>function disableRadio(value, disabled, recusive)</b><br><br>
+// 隐藏或显示所有的Radio.<br>
+<b>function visiableRadio(visiable)</b><br><br>
+	</td>
+</tr>
+<tr>
+	<td style="color:red; font-weight:bold">注：红色字体部分表示和1.0不同.</td>
+</tr>
+<tr>
+	<td style="color:blue; font-weight:bold"><p>建议：有大量节点时eXtree的构造速度相当快，但是显示时（document.write(tree)）比较慢，其中控件树最慢。所以在有大量的节点时，首先建议大家使用动态树，其次是在控件树中尽量使用普通节点对象（比如在CheckBox树中的非叶子节点）。</p>
+	<p>largeCheckBoxTree.html 是测试速度页面，大家可以修改此页面，进行测试。
+	</td>
+</tr>
+<tr>
+	<td>
+	   <span style="color:blue;font-weight:bold">Map 类：</span>
+	</td>
+</tr>
+<tr>
+	<td>
+	   定义在map.js文件中，类似于Java中的Map对象。EXtree中CheckBox树使用到了该对象。<br>
+	   构造函数：Map()。<br>
+	   方法：<br><br>
+	   // 在Map中放入键值对。<br>
+	   <b>put(key, object)</b><br><br>
+	   // 删除Map中键值key或者索引位置index对应的值。<br>
+	   // 参数 keyOrIndex 可以是键值，也可以是 index 索引。<br>
+	   // 返回删除的对象句柄，没有删除任何值时返回null。<br>
+	   <b>remove(keyOrIndex)</b><br><br>
+	   // 获取Map中键值key或者索引位置index对应的值。<br>
+	   // 参数 keyOrIndex 可以是键值，也可以是 index 索引。<br>
+	   // 没有对应的值时返回null。<br>
+	   <b>get(keyOrIndex)</b><br> <br>
+	   // 获取Map中所有的值。<br>
+	   // 返回的是数组。<br>
+	   <b>values()</b><br>    
+	</td>
+</tr>
+</table>
+</body>
+</html>

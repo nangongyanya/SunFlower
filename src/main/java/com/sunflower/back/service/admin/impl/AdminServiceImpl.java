@@ -299,7 +299,7 @@ public class AdminServiceImpl implements AdminService {
 	 * @return
 	 */
 	@Override
-	public AdminMenus findAdminMenus(String id) {
+	public AdminMenus findAdminMenus(Integer id) {
 		return this.adminMenusDao.findById(id);
 	}
 	
@@ -311,6 +311,66 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminMenus> findAdminMenusAll() {
 		return this.adminMenusDao.findAll();
 	}
+	
+	/**
+	 * 获取顶级系统功能列表
+	 * 
+	 * @return
+	 */
+	@Override
+	public List<AdminMenus> findAdminMenusFirst() {
+		return this.adminMenusDao.findAdminMenusFirst();
+	}
+	
+	/**
+	 * 删除系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+	@Override
+    public void removeAdminMenus(Integer id) {
+        this.adminMenusDao.deleteById(id);
+    }
+
+    /**
+	 * 删除系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+    @Override
+    public void removeAdminMenus(String[] ids) {
+    	for (String id : ids) {
+    		this.removeAdminMenus(Integer.parseInt(id));
+    	}
+    }
+    
+	/**
+	 * 保存系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+	@Override
+    public Integer saveAdminMenus(AdminMenus obj) {
+        return (Integer) this.adminMenusDao.save(obj);
+    }
+    
+	/**
+	 * 更新系统菜单
+	 * 
+	 * @param id
+	 * @exception
+	 * @since 1.0.0
+	 */
+	@Override
+    public void updateAdminMenus(AdminMenus obj) {
+        this.adminMenusDao.update(obj);
+    }
 	
 	/** ************** AdminMenus e *************** */
 	

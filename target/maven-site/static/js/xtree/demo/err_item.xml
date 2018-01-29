@@ -1,0 +1,14 @@
+<?xml  version="1.0" encoding="gb2312" ?>
+<tree>
+   <tree id="mynode" text="节点1" value="href://webfx.eae.net" myAttr="myAttr_Value"/> <!-- 没有指定type属性，与它父节点的类型相同。 -->
+   <tree text="动态加载子节点2" value="11"  src="itemb.xml" disabled="true" type="radio" id="11">       
+   </tree>
+
+   <tree text="节点3" value="13" type="check" id="any_string">
+      <tree text="节点 2" value="value:fff" disabled="true"/>
+      <tree text="&quot;递归加载&quot;" src="items.xml" value="fdafsdfasfd"/> 
+   </tree>
+
+   <tree text="节点4" value="4444" src="no_item.xml" type="radio" id="id_value"/>
+
+<!--/tree-->

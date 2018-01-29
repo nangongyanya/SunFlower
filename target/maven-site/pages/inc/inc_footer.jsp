@@ -8,7 +8,7 @@
 				<span class="blue bolder">Sunflower</span> &copy; 2018
 			</span>
 
-			&nbsp; &nbsp;
+			<!-- &nbsp; &nbsp;
 			<span class="action-buttons">
 				<a href="#">
 					<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
@@ -21,7 +21,7 @@
 				<a href="#">
 					<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
 				</a>
-			</span>
+			</span> -->
 		</div>
 
 		<!-- /section:basics/footer -->

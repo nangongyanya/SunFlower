@@ -6,7 +6,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">后台主页</a>
+								<a href="/system/index.h">后台主页</a>
 							</li>
 
 							<li class="active">${param.menu }</li>

@@ -15,7 +15,7 @@ public class Constants {
 	public static final String ADMIN_SESSION_USER_ROLEURL = "ADMIN_SESSION_USER_ROLEURL";
 
 	// 超级管理员角色id
-	public static final String SYSTEM_ROLE = "1";
+	public static final Integer SYSTEM_ROLE = 1;
 	// 超级管理员账号id
 	public static final String SYSTEM_ADMIN_ID = "1";
 

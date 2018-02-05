@@ -71,7 +71,7 @@ public class AdminRoleController extends BaseController {
 		if (!StringUtils.isEmpty(delIds)) {
 			String[] ids = delIds.split(",");
 			for (String id : ids) {
-				if (id.equalsIgnoreCase(Constants.SYSTEM_ROLE)) {
+				if (id.equalsIgnoreCase(Constants.SYSTEM_ROLE.toString())) {
         			continue;
         		}
 				

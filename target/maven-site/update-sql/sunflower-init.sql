@@ -30,9 +30,11 @@ CREATE TABLE `admin_menus` (
   `status` int(11) DEFAULT NULL COMMENT '是否有效 1 有效 0 无效',
   PRIMARY KEY (`id`),
   KEY `FK_Reference_1` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='栏目表';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='栏目表';
 
 /*Data for the table `admin_menus` */
+
+insert  into `admin_menus`(`id`,`name`,`url`,`sort`,`description`,`parent_id`,`status`) values (1,'Dashboard','/system/index.h',1,'Dashboard',NULL,NULL),(6,'基础设置','/',2,'基础设置',NULL,NULL),(10,'基础数据管理','/',1,'基础数据管理',6,NULL),(11,'数据类型','/system/cms/mcCommonDataType_list.h',1,'数据类型',10,NULL),(12,'基础数据','/system/cms/mcCommonData_list.h',2,'基础数据',10,NULL),(13,'系统功能','/',3,'系统功能',NULL,NULL),(14,'权限管理','/',1,'权限管理',13,NULL),(15,'管理员管理','/system/admin/adminUser_list.h',1,'管理员管理',14,NULL),(16,'角色管理','/system/admin/adminRole_list.h',2,'角色管理',14,NULL),(17,'功能菜单管理','/system/admin/adminMenu_index.h',3,'功能菜单管理',14,NULL);
 
 /*Table structure for table `admin_role` */
 
@@ -45,11 +47,11 @@ CREATE TABLE `admin_role` (
   `role_code` varchar(50) DEFAULT NULL COMMENT '角色码',
   PRIMARY KEY (`id`),
   UNIQUE KEY `u_role` (`role_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='管理员角色表';
 
 /*Data for the table `admin_role` */
 
-insert  into `admin_role`(`id`,`role_name`,`role_desc`,`role_code`) values (1,'超级管理员','超级管理员','SystemAdmin');
+insert  into `admin_role`(`id`,`role_name`,`role_desc`,`role_code`) values (1,'超级管理员','超级管理员','SystemAdmin'),(6,'二级管理员','二级管理员','S-Admin'),(7,'三级管理员','三级管理员','T-Admin');
 
 /*Table structure for table `admin_role_url` */
 
@@ -60,9 +62,11 @@ CREATE TABLE `admin_role_url` (
   `role_id` varchar(50) DEFAULT NULL COMMENT '角色id',
   `menu_id` varchar(50) DEFAULT NULL COMMENT '栏目id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色栏目关联关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='角色栏目关联关系表';
 
 /*Data for the table `admin_role_url` */
+
+insert  into `admin_role_url`(`id`,`role_id`,`menu_id`) values (11,'6','1');
 
 /*Table structure for table `admin_user` */
 
@@ -84,7 +88,7 @@ CREATE TABLE `admin_user` (
 
 /*Data for the table `admin_user` */
 
-insert  into `admin_user`(`id`,`nickname`,`username`,`psw`,`date_added`,`last_login_date`,`login_count`,`last_login_ip`,`status`,`group_id`) values (1,'超级管理员','admin','e00cf25ad42683b3df678c61f42c6bda','2018-01-21 16:11:37','2018-01-23 23:45:03',10,'192.168.1.5',0,NULL),(2,'轩滨','xuanbin','e398790ca93988ecff877c935db6c243','2018-01-23 23:39:59',NULL,NULL,NULL,0,NULL);
+insert  into `admin_user`(`id`,`nickname`,`username`,`psw`,`date_added`,`last_login_date`,`login_count`,`last_login_ip`,`status`,`group_id`) values (1,'超级管理员','admin','e00cf25ad42683b3df678c61f42c6bda','2018-01-21 16:11:37','2018-02-05 22:23:28',27,'192.168.1.5',0,NULL),(2,'李明','liming','6b0477bed0d8393dd412fd1b45f46c6f','2018-01-29 19:45:21','2018-02-05 22:33:25',5,'192.168.1.5',0,NULL);
 
 /*Table structure for table `admin_user_to_role` */
 
@@ -99,7 +103,7 @@ CREATE TABLE `admin_user_to_role` (
 
 /*Data for the table `admin_user_to_role` */
 
-insert  into `admin_user_to_role`(`role_id`,`admin_id`,`date_added`) values (1,1,'2018-01-21 16:27:27');
+insert  into `admin_user_to_role`(`role_id`,`admin_id`,`date_added`) values (1,1,'2018-01-21 16:27:27'),(6,2,'2018-02-05 12:05:27'),(6,3,'2018-01-28 19:28:13');
 
 /*Table structure for table `mc_common_data` */
 
@@ -120,7 +124,7 @@ CREATE TABLE `mc_common_data` (
 
 /*Data for the table `mc_common_data` */
 
-insert  into `mc_common_data`(`id`,`name`,`sort`,`status`,`type`,`date_added`,`last_modified`) values (6,'散文',1,1,1,'2018-01-19 00:28:26','2018-01-19 00:28:29'),(49,'星期一',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:47'),(65,'星期二',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:56'),(66,'星期三',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:06'),(67,'星期四',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:14'),(68,'星期五',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:25'),(69,'星期六',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:39'),(75,'星期日',1,1,45,'2018-01-19 10:47:00','2018-01-19 10:47:00');
+insert  into `mc_common_data`(`id`,`name`,`sort`,`status`,`type`,`date_added`,`last_modified`) values (49,'星期一',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:47'),(65,'星期二',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:56'),(66,'星期三',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:06'),(67,'星期四',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:14'),(68,'星期五',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:25'),(69,'星期六',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:39'),(75,'星期日',1,1,45,'2018-01-19 10:47:00','2018-01-19 10:47:00');
 
 /*Table structure for table `mc_common_data_type` */
 
@@ -132,11 +136,11 @@ CREATE TABLE `mc_common_data_type` (
   `date_added` datetime DEFAULT NULL COMMENT '创建时间',
   `last_modified` datetime DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COMMENT='基础字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='基础字典类型表';
 
 /*Data for the table `mc_common_data_type` */
 
-insert  into `mc_common_data_type`(`id`,`name`,`date_added`,`last_modified`) values (1,'标签','2018-01-18 15:08:11','2018-01-18 19:10:51'),(45,'星期','2018-01-18 18:01:13','2018-01-18 18:01:13'),(46,'月份','2018-01-18 18:12:27','2018-01-18 18:12:27');
+insert  into `mc_common_data_type`(`id`,`name`,`date_added`,`last_modified`) values (45,'星期','2018-01-18 18:01:13','2018-01-18 18:01:13');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -23,12 +23,14 @@ import org.springframework.security.web.FilterInvocation;
  */
 public class AdminUserAccessDecisionManager implements AccessDecisionManager {
 
-	public void decide(Authentication authentication, Object object,
-			Collection<ConfigAttribute> configAttributes)
+	public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes)
 			throws AccessDeniedException, InsufficientAuthenticationException {
+		/** 如果不存在对该资源的定义，直接放行 */
 		if (configAttributes == null) {
 			return;
 		}
+		
+		/** 存在对该资源的定义时，如果当前用户是正确的角色拥有权限，则放行 */
 		Iterator<ConfigAttribute> ite = configAttributes.iterator();
 		while (ite.hasNext()) {
 			ConfigAttribute ca = ite.next();
@@ -39,6 +41,8 @@ public class AdminUserAccessDecisionManager implements AccessDecisionManager {
 				}
 			}
 		}
+		
+		/** 抛出异常AccessDeniedException，进入403.jsp页面 */
 		String url = ((FilterInvocation) object).getRequestUrl();
 		throw new AccessDeniedException("您无权访问" + url);
 	}

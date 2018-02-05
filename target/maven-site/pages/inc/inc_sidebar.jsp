@@ -159,10 +159,7 @@
 			
 							<span class="menu-text">
 								其他页面
-								<!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-primary">1</span>
-			
-								<!-- /section:basics/sidebar.layout.badge -->
+								<!-- <span class="badge badge-primary">1</span> -->
 							</span>
 			
 							<b class="arrow fa fa-angle-down"></b>
@@ -180,14 +177,14 @@
 								<b class="arrow"></b>
 							</li>
 							
-							<%-- <li <c:if test="${fn:startsWith(param.menu, '100-2')}">class="active"</c:if>>
-								<a href="/system/table_template.h">
+							<li <c:if test="${fn:startsWith(param.menu, '100-2')}">class="active"</c:if>>
+								<a href="/pages/error/403.jsp">
 									<i class="menu-icon fa fa-caret-right"></i>
-									列表模板页
+									禁止访问
 								</a>
 			
 								<b class="arrow"></b>
-							</li> --%>
+							</li>
 						</ul>
 					</li>
 				</ul><!-- /.nav-list -->

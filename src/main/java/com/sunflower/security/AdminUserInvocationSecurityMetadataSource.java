@@ -70,12 +70,12 @@ public class AdminUserInvocationSecurityMetadataSource implements FilterInvocati
                 List<AdminMenus> adminMenusList = this.getAdminService().findAdminMenusAll();
                 for (AdminMenus adminMenu : adminMenusList) {
                     String urlStr = adminMenu.getUrl();
-                    if (!org.apache.commons.lang.StringUtils.isEmpty(urlStr)) {
-                        urlStr = urlStr.replace("\r\n", "@");
+                    if (!StringUtils.isEmpty(urlStr)) {
+                        urlStr = urlStr.replaceAll("\r\n", "@");
                         String urls[] = StringUtils.split(urlStr, "@");
                         for (String _url : urls) {
-                            _url=StringUtils.trim(_url);
-                            if (!org.apache.commons.lang.StringUtils.isEmpty(_url)) {
+                            _url = StringUtils.trim(_url);
+                            if (!StringUtils.isEmpty(_url)) {
                                 //todo 添加所有权限. 并判断重复
                                 Collection<ConfigAttribute> obj = resourceMap.get(_url);
                                 if (obj == null) {
@@ -101,12 +101,12 @@ public class AdminUserInvocationSecurityMetadataSource implements FilterInvocati
                     	continue;
                     }
                     String urlStr = menu.getUrl();
-                    if (!org.apache.commons.lang.StringUtils.isEmpty(urlStr)) {
-                        urlStr = urlStr.replace("\r\n", "@");
+                    if (!StringUtils.isEmpty(urlStr)) {
+                        urlStr = urlStr.replaceAll("\r\n", "@");
                         String urls[] = StringUtils.split(urlStr, "@");
                         for (String _url : urls) {
-                            _url=StringUtils.trim(_url);
-                            if (!org.apache.commons.lang.StringUtils.isEmpty(_url)) {
+                            _url = StringUtils.trim(_url);
+                            if (!StringUtils.isEmpty(_url)) {
                                 // 添加所有权限. 并判断重复
                                 Collection<ConfigAttribute> obj = resourceMap.get(_url);
                                 if (obj == null) {

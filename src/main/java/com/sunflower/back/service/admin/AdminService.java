@@ -269,5 +269,13 @@ public interface AdminService {
 	 */
 	public List<AdminRoleUrl> findAdminRoleUrlByRoleId(String roleId);
 	
+	/**
+	 * 保存角色和功能菜单列表
+	 * 
+	 * @param roleId
+	 * @param urlIds
+	 */
+	public void saveByRoleIdAndMenuIds(String roleId, String menuIds);
+	
 	/** ************** AdminRoleUrl e *************** */
 }

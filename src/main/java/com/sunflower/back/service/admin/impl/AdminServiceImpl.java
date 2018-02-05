@@ -388,5 +388,16 @@ public class AdminServiceImpl implements AdminService {
 		return this.adminRoleUrlDao.findByRoleId(roleId);
 	}
 	
+	/**
+	 * 保存角色和功能菜单列表
+	 * 
+	 * @param roleId
+	 * @param urlIds
+	 */
+	@Override
+	public void saveByRoleIdAndMenuIds(String roleId, String menuIds) {
+		this.adminRoleUrlDao.saveByRoleIdAndMenuIds(roleId, menuIds);
+	}
+	
 	/** ************** AdminRoleUrl e *************** */
 }

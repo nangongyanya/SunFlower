@@ -13,15 +13,15 @@ import java.io.Serializable;
 public class AdminRoleUrl implements Serializable {
 
 	private static final long serialVersionUID = -4226456324312635565L;
-	private String id;
+	private Integer id;
 	private String roleId;
 	private String menuId;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

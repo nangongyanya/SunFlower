@@ -56,16 +56,16 @@ public class AdminRoleUrlDaoImpl extends BaseDaoImpl<AdminRoleUrl> implements Ad
 	 * 保存角色和功能菜单列表
 	 * 
 	 * @param roleId
-	 * @param urlIds
+	 * @param menuIds
 	 */
     @Override
-    public void saveByRoleIdAndurlIds(String roleId, String urlIds) {
+    public void saveByRoleIdAndMenuIds(String roleId, String menuIds) {
         removeByRoleId(roleId);
-        String urlIdss[] = urlIds.split(",");
-        for (String urlId : urlIdss) {
-            if (!StringUtils.isEmpty(urlId)) {
+        String menuIdss[] = menuIds.split(",");
+        for (String menuId : menuIdss) {
+            if (!StringUtils.isEmpty(menuId)) {
                 AdminRoleUrl ars = new AdminRoleUrl();
-                ars.setMenuId(urlId);
+                ars.setMenuId(menuId);
                 ars.setRoleId(roleId);
                 this.save(ars);
             }

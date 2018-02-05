@@ -36,6 +36,6 @@ public interface AdminRoleUrlDao extends BaseDao<AdminRoleUrl> {
 	 * @param roleId
 	 * @param urlIds
 	 */
-	public void saveByRoleIdAndurlIds(String roleId, String urlIds);
+	public void saveByRoleIdAndMenuIds(String roleId, String menuIds);
 
 }

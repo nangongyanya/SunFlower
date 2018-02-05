@@ -77,6 +77,9 @@
 																<i class="ace-icon fa fa-pencil bigger-120"></i>
 															</a>
 															<c:if test="${info.id ne 1 }">
+																<a href="adminRoleUrl_form.h?roleId=${info.id }" class="btn btn-xs btn-warning">
+																	<i class="ace-icon fa fa-cog bigger-120"></i>
+																</a>
 																<a href="adminRole_delete.h?delIds=${info.id }" class="btn btn-xs btn-danger">
 																	<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																</a>

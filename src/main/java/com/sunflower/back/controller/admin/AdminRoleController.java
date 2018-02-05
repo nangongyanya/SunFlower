@@ -273,4 +273,50 @@ public class AdminRoleController extends BaseController {
 		return "redirect:adminUserToRole_list.h?roleId=" + roleId;
 	}
 	
+	/**
+	 * 给角色分配功能菜单权限的页面
+	 * 
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+    @RequestMapping(value = "/adminRoleUrl_form", method = RequestMethod.GET)
+    public String adminRoleUrlFormGet(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String roleId = request.getParameter("roleId");
+        if (StringUtils.isEmpty(roleId)) {
+	        request.getSession().setAttribute("rs", "请选择角色！");
+			return "redirect:adminRole_list.h";
+        }
+        AdminRole role = this.adminService.findAdminRoleById(Integer.parseInt(roleId));
+        model.put("role", role);
+
+        return "admin/adminRoleUrl_form";
+    }
+    
+    /**
+	 * 给角色分配功能菜单权限的页面
+	 * 
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+    @RequestMapping(value = "/adminRoleUrl_form", method = RequestMethod.POST)
+    public String adminRoleUrlFormPost(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	String roleId = request.getParameter("roleId");
+		String menuIds = request.getParameter("menuIds");
+		// 先全部删除 然后再添加
+		this.adminService.saveByRoleIdAndMenuIds(roleId, menuIds);
+		// SystemLog.log(this, SystemLog.UPDATE, "编辑所属菜单权限:rid=".concat(rid).concat("  menuIds=").concat(menuIds), request);
+		// 此处更新spring security 的权限缓存
+		AdminUserInvocationSecurityMetadataSource auisms = new AdminUserInvocationSecurityMetadataSource();
+		auisms.setAdminService(adminService);
+		auisms.loadResourceDefine();
+		return "redirect:adminRole_list.h";
+
+    }
+	
 }

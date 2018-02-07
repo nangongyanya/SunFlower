@@ -13,6 +13,8 @@
         2.1.1、管理员管理
         2.1.2、角色管理
         2.1.3、功能菜单管理
+      2.2、系统日志
+        2.2.1、系统日志
 
     截图：
     列表页：
@@ -20,3 +22,9 @@
 
     编辑页：
 ![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/%E7%BC%96%E8%BE%91%E9%A1%B5.png?raw=true)
+
+    角色成员添加页
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/角色成员添加页.png?raw=true)
+
+    角色权限管理页
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/角色权限管理页.png?raw=true)

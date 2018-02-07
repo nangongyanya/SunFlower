@@ -150,6 +150,27 @@
 									</li>
 								</ul>
 							</li>
+							
+							<li <c:if test="${fn:startsWith(param.menu, '2-2-')}">class="open"</c:if>>
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+									系统日志
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+			
+								<b class="arrow"></b>
+			
+								<ul class="submenu">
+									<li <c:if test="${fn:startsWith(param.menu, '2-2-1')}">class="active"</c:if>>
+										<a href="/system/admin/adminLog_list.h">
+											<i class="menu-icon fa fa-caret-right"></i>
+											系统日志
+										</a>
+			
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					

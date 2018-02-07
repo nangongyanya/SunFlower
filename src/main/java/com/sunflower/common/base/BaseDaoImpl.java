@@ -127,7 +127,7 @@ public class BaseDaoImpl<T extends Serializable> implements BaseDao<T> {
 	 * @param o
 	 */
 	@Override
-	public void deleteAdminMenus(T o) {
+	public void delete(T o) {
 		getSession().delete(o);
 		getSession().flush();
 	}
@@ -140,7 +140,7 @@ public class BaseDaoImpl<T extends Serializable> implements BaseDao<T> {
 	 */
 	@Override
 	public void deleteById(Serializable id) {
-		this.deleteAdminMenus(this.get(id));
+		this.delete(this.get(id));
 	}
 
 	/**

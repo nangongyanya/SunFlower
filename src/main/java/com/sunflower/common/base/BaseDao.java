@@ -54,7 +54,7 @@ public interface BaseDao<T extends Serializable> {
 	 * 
 	 * @param o
 	 */
-	public void deleteAdminMenus(T o);
+	public void delete(T o);
 
 	/**
 	 * 根据ID删除记录

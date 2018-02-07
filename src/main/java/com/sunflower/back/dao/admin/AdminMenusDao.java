@@ -20,7 +20,7 @@ public interface AdminMenusDao extends BaseDao<AdminMenus> {
 	 * 
 	 * @param obj
 	 */
-    public void deleteAdminMenus(AdminMenus obj);
+    public void delete(AdminMenus obj);
     
 	/**
 	 * 根据url删除栏目权限

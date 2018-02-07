@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sunflower.back.domain.admin.AdminMenus;
 import com.sunflower.back.service.admin.AdminService;
+import com.sunflower.back.util.SystemLogUtil;
 import com.sunflower.common.base.BaseController;
 import com.sunflower.common.vo.JsonDetail;
 import com.sunflower.security.AdminUserInvocationSecurityMetadataSource;
@@ -108,6 +109,7 @@ public class AdminMenusController extends BaseController {
                 }
             }
             this.adminService.removeAdminMenus(ids);
+            SystemLogUtil.log(adminService, this, SystemLogUtil.DELETE, "删除菜单权限:".concat(delIds), request);
             
             // 此处更新spring security 的权限缓存
             AdminUserInvocationSecurityMetadataSource auisms = new AdminUserInvocationSecurityMetadataSource();
@@ -185,11 +187,13 @@ public class AdminMenusController extends BaseController {
 		// 保存
 		if (StringUtils.isEmpty(id)) {
             this.adminService.saveAdminMenus(adminMenu);
+            SystemLogUtil.log(adminService, this, SystemLogUtil.SAVE, "添加菜单权限:".concat(adminMenu.getName()), request);
         } 
 		// 更新
 		else {
 			adminMenu.setId(Integer.parseInt(id));
 			this.adminService.updateAdminMenus(adminMenu);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.UPDATE, "修改菜单权限:".concat(adminMenu.getName()), request);
 		}
 
 		// 此处更新spring security 的权限缓存

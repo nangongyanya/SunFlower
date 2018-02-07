@@ -16,6 +16,27 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`sunflower` /*!40100 DEFAULT CHARACTER S
 
 USE `sunflower`;
 
+/*Table structure for table `admin_log` */
+
+DROP TABLE IF EXISTS `admin_log`;
+
+CREATE TABLE `admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_method` varchar(150) DEFAULT NULL COMMENT '操作类',
+  `opt_date` datetime DEFAULT NULL COMMENT '操作时间',
+  `opt_desc` text COMMENT '操作描述',
+  `remake` text COMMENT '备注',
+  `admin_name` varchar(50) DEFAULT NULL COMMENT '管理员名称',
+  `admin_id` int(11) DEFAULT NULL COMMENT '管理员id',
+  `opt_type` varchar(10) DEFAULT NULL COMMENT '操作类型：update、delete、save',
+  `opt_ip` varchar(15) DEFAULT NULL COMMENT '操作ip',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='系统日志表';
+
+/*Data for the table `admin_log` */
+
+insert  into `admin_log`(`id`,`class_method`,`opt_date`,`opt_desc`,`remake`,`admin_name`,`admin_id`,`opt_type`,`opt_ip`) values (1,'SystemLoginLogout','2018-02-07 20:09:12','登陆成功==>admin/e00cf25ad42683b3df678c61f42c6bda','','超级管理员[admin]',1,'login','192.168.1.5'),(2,'AdminUserController','2018-02-07 20:11:16','添加管理员:甘振隆[ganzhenlong]','','超级管理员[admin]',1,'save','192.168.1.5'),(3,'AdminUserController','2018-02-07 20:16:03','添加管理员:雷方庆[leifangqing]','','超级管理员[admin]',1,'save','192.168.1.5'),(4,'SystemLoginLogout','2018-02-07 20:18:33','登陆成功==>admin/e00cf25ad42683b3df678c61f42c6bda','','超级管理员[admin]',1,'login','192.168.1.5'),(5,'AdminUserController','2018-02-07 20:19:02','添加管理员:陈君浩[chenjunhao]','','超级管理员[admin]',1,'save','192.168.1.5'),(6,'SystemLoginLogout','2018-02-07 20:21:11','登陆成功==>admin/e00cf25ad42683b3df678c61f42c6bda','','超级管理员[admin]',1,'login','192.168.1.5'),(7,'AdminUserController','2018-02-07 20:21:48','添加管理员:黄丽娟[huanglijuan]','','超级管理员[admin]',1,'save','192.168.1.5');
+
 /*Table structure for table `admin_menus` */
 
 DROP TABLE IF EXISTS `admin_menus`;
@@ -84,11 +105,11 @@ CREATE TABLE `admin_user` (
   `status` tinyint(1) NOT NULL COMMENT '账号状态',
   `group_id` int(11) DEFAULT NULL COMMENT '组织部门id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 /*Data for the table `admin_user` */
 
-insert  into `admin_user`(`id`,`nickname`,`username`,`psw`,`date_added`,`last_login_date`,`login_count`,`last_login_ip`,`status`,`group_id`) values (1,'超级管理员','admin','e00cf25ad42683b3df678c61f42c6bda','2018-01-21 16:11:37','2018-02-05 22:23:28',27,'192.168.1.5',0,NULL),(2,'李明','liming','6b0477bed0d8393dd412fd1b45f46c6f','2018-01-29 19:45:21','2018-02-05 22:33:25',5,'192.168.1.5',0,NULL);
+insert  into `admin_user`(`id`,`nickname`,`username`,`psw`,`date_added`,`last_login_date`,`login_count`,`last_login_ip`,`status`,`group_id`) values (1,'超级管理员','admin','e00cf25ad42683b3df678c61f42c6bda','2018-01-21 16:11:37','2018-02-07 20:21:11',32,'192.168.1.5',0,NULL),(2,'李明','liming','6b0477bed0d8393dd412fd1b45f46c6f','2018-01-29 19:45:21','2018-02-05 22:33:25',5,'192.168.1.5',0,NULL),(3,'甘振隆','ganzhenlong','abed42f5987cdbd1bb16e5a66770ec49','2018-02-07 20:11:16',NULL,NULL,NULL,0,NULL),(4,'雷方庆','leifangqing','916f4aca76e836639e956bbab2eea7c2','2018-02-07 20:16:03',NULL,NULL,NULL,0,NULL),(5,'陈君浩','chenjunhao','4f0342798accb08c9ce894db5836597c','2018-02-07 20:19:02',NULL,NULL,NULL,0,NULL),(6,'黄丽娟','huanglijuan','016d3714d68af359fbd79344ce0030d5','2018-02-07 20:21:48',NULL,NULL,NULL,0,NULL);
 
 /*Table structure for table `admin_user_to_role` */
 
@@ -120,11 +141,11 @@ CREATE TABLE `mc_common_data` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `mc_common_data_u` (`name`,`type`),
   KEY `idx_sort` (`sort`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COMMENT='基础字典表';
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COMMENT='基础字典表';
 
 /*Data for the table `mc_common_data` */
 
-insert  into `mc_common_data`(`id`,`name`,`sort`,`status`,`type`,`date_added`,`last_modified`) values (49,'星期一',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:47'),(65,'星期二',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:56'),(66,'星期三',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:06'),(67,'星期四',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:14'),(68,'星期五',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:25'),(69,'星期六',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:39'),(75,'星期日',1,1,45,'2018-01-19 10:47:00','2018-01-19 10:47:00');
+insert  into `mc_common_data`(`id`,`name`,`sort`,`status`,`type`,`date_added`,`last_modified`) values (49,'星期一',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:47'),(65,'星期二',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:45:56'),(66,'星期三',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:06'),(67,'星期四',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:14'),(68,'星期五',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:25'),(69,'星期六',1,1,45,'2018-01-19 00:28:26','2018-01-19 10:46:39'),(75,'星期日',1,1,45,'2018-01-19 10:47:00','2018-01-19 10:47:00'),(76,'文档文件',1,1,46,'2018-02-07 19:56:23','2018-02-07 19:56:23'),(77,'图片文件',2,1,46,'2018-02-07 19:59:34','2018-02-07 19:59:34'),(78,'音频文件',3,1,46,'2018-02-07 20:01:34','2018-02-07 20:01:34'),(79,'视频文件',4,1,46,'2018-02-07 20:04:06','2018-02-07 20:04:06');
 
 /*Table structure for table `mc_common_data_type` */
 
@@ -136,11 +157,11 @@ CREATE TABLE `mc_common_data_type` (
   `date_added` datetime DEFAULT NULL COMMENT '创建时间',
   `last_modified` datetime DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='基础字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COMMENT='基础字典类型表';
 
 /*Data for the table `mc_common_data_type` */
 
-insert  into `mc_common_data_type`(`id`,`name`,`date_added`,`last_modified`) values (45,'星期','2018-01-18 18:01:13','2018-01-18 18:01:13');
+insert  into `mc_common_data_type`(`id`,`name`,`date_added`,`last_modified`) values (45,'星期','2018-01-18 18:01:13','2018-01-18 18:01:13'),(46,'文件类型','2018-02-07 19:55:48','2018-02-07 19:55:48');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

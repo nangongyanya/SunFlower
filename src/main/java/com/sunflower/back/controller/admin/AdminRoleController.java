@@ -18,6 +18,7 @@ import com.sunflower.back.domain.admin.AdminRole;
 import com.sunflower.back.domain.admin.AdminUser;
 import com.sunflower.back.domain.admin.AdminUserToRole;
 import com.sunflower.back.service.admin.AdminService;
+import com.sunflower.back.util.SystemLogUtil;
 import com.sunflower.common.base.BaseController;
 import com.sunflower.common.constants.Constants;
 import com.sunflower.common.vo.JsonDetail;
@@ -310,7 +311,8 @@ public class AdminRoleController extends BaseController {
 		String menuIds = request.getParameter("menuIds");
 		// 先全部删除 然后再添加
 		this.adminService.saveByRoleIdAndMenuIds(roleId, menuIds);
-		// SystemLog.log(this, SystemLog.UPDATE, "编辑所属菜单权限:rid=".concat(rid).concat("  menuIds=").concat(menuIds), request);
+		SystemLogUtil.log(adminService, this, SystemLogUtil.DELETE, "编辑所属菜单权限:rid=".concat(roleId).concat("  menuIds=").concat(menuIds), request);
+		
 		// 此处更新spring security 的权限缓存
 		AdminUserInvocationSecurityMetadataSource auisms = new AdminUserInvocationSecurityMetadataSource();
 		auisms.setAdminService(adminService);

@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sunflower.back.domain.cms.McCommonData;
 import com.sunflower.back.domain.cms.McCommonDataType;
+import com.sunflower.back.service.admin.AdminService;
 import com.sunflower.back.service.cms.McCommonDataService;
 import com.sunflower.back.support.cms.McCommonDataCriteria;
 import com.sunflower.back.support.cms.McCommonDataTypeCriteria;
+import com.sunflower.back.util.SystemLogUtil;
 import com.sunflower.common.base.BaseController;
 import com.sunflower.common.base.PagedObject;
 import com.sunflower.common.vo.JsonDetail;
@@ -38,6 +40,8 @@ public class McCommonDataController extends BaseController {
 
 	@Autowired
 	private McCommonDataService mcCommonDataService;
+	@Autowired
+	private AdminService adminService;
 
 	/**
 	 * 获取基础数据类型列表
@@ -192,6 +196,7 @@ public class McCommonDataController extends BaseController {
 						.parseInt(id));
 			}
 		}
+		SystemLogUtil.log(adminService, this, SystemLogUtil.DELETE, "删除基础数据:".concat(delIds), request);
 
 		String referer = request.getHeader("referer");
 		if (!StringUtils.isEmpty(referer)) {
@@ -247,10 +252,12 @@ public class McCommonDataController extends BaseController {
 		// 保存
 		if (StringUtils.isEmpty(id)) {
 			this.mcCommonDataService.saveMcCommonData(data);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.SAVE, "添加基础数据:".concat(data.getId().toString()), request);
 		}
 		// 更新
 		else {
 			this.mcCommonDataService.updateMcCommonData(data);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.UPDATE, "修改基础数据:".concat(data.getId().toString()), request);
 		}
 
 		String referer = request.getHeader("referer");

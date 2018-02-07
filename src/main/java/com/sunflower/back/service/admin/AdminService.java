@@ -2,11 +2,13 @@ package com.sunflower.back.service.admin;
 
 import java.util.List;
 
+import com.sunflower.back.domain.admin.AdminLog;
 import com.sunflower.back.domain.admin.AdminMenus;
 import com.sunflower.back.domain.admin.AdminRole;
 import com.sunflower.back.domain.admin.AdminRoleUrl;
 import com.sunflower.back.domain.admin.AdminUser;
 import com.sunflower.back.domain.admin.AdminUserToRole;
+import com.sunflower.back.support.admin.AdminLogCriteria;
 import com.sunflower.back.support.admin.AdminRoleCriteria;
 import com.sunflower.back.support.admin.AdminUserCriteria;
 import com.sunflower.back.support.admin.AdminUserToRoleCriteria;
@@ -278,4 +280,58 @@ public interface AdminService {
 	public void saveByRoleIdAndMenuIds(String roleId, String menuIds);
 	
 	/** ************** AdminRoleUrl e *************** */
+	
+	/** ************** AdminLog e *************** */
+	/**
+	 * 保存系统日志
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	public Integer saveAdminLog(AdminLog obj);
+
+	/**
+	 * 根据id删除系统日志
+	 * 
+	 * @param id
+	 */
+    public void removeAdminLog(String id);
+
+    /**
+     * 根据id数组删除系统日志
+     * 
+     * @param ids
+     */
+    public void removeAdminLog(String[] ids);
+
+    /**
+     * 根据日志对象删除系统日志
+     * 
+     * @param obj
+     */
+    public void removeAdminLog(AdminLog obj);
+
+    /**
+     * 更新系统日志
+     * 
+     * @param obj
+     */
+    public void updateAdminLog(AdminLog obj);
+
+    /**
+     * 查询系统日志
+     * 
+     * @param id
+     * @return
+     */
+    public AdminLog findAdminLog(String id);
+
+    /**
+	 * 获取系统日志列表（可分页）
+	 * 
+	 * @param criteria
+	 * @return
+	 */
+    public PagedObject queryAdminLog(AdminLogCriteria criteria);
+    /** ************** AdminLog e *************** */
 }

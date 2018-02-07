@@ -29,11 +29,11 @@ public class AdminMenusDaoImpl extends BaseDaoImpl<AdminMenus> implements
 	 * @param obj
 	 */
 	@Override
-	public void deleteAdminMenus(AdminMenus obj) {
+	public void delete(AdminMenus obj) {
 		if (obj.getAdminMenus() != null) {
 			obj.getAdminMenus().getAdminMenuss().remove(obj);
 		}
-		super.deleteAdminMenus(obj);
+		super.delete(obj);
 	}
 
 	/**

@@ -18,6 +18,7 @@ import com.sunflower.back.domain.admin.AdminRole;
 import com.sunflower.back.domain.admin.AdminUser;
 import com.sunflower.back.service.admin.AdminService;
 import com.sunflower.back.util.AdminUserSessionUtil;
+import com.sunflower.back.util.SystemLogUtil;
 import com.sunflower.common.util.IPUtil;
 
 /**
@@ -53,7 +54,7 @@ public class SystemLoginLogout {
 
 		HttpSession session = request.getSession();
 		if (StringUtils.isEmpty(username) || StringUtils.isEmpty(psw)) {
-			//SystemLog.log(this, SystemLog.LOGIN, "登陆参数不全", request);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.LOGIN, "登录参数不全", request);
 			session.setAttribute("rs", "emptyParam");
 			return "redirect:/gu_ess.jsp";
 		}
@@ -61,20 +62,20 @@ public class SystemLoginLogout {
 		AdminUser admin = this.adminService.findAdminUserByUsername(username);
 		// 用户为空
 		if (admin == null) {
-			//SystemLog.log(this, SystemLog.LOGIN, "用户不存在==>".concat(username), request);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.LOGIN, "用户不存在==>".concat(username), request);
 			session.setAttribute("rs", "emptyUser");
 			return "redirect:/gu_ess.jsp";
 		}
 		// 用户密码不正确
 		psw = AdminUserSessionUtil.encryptPsw(admin.getUsername(), psw);
 		if (!psw.equals(admin.getPsw())) {
-			//SystemLog.log(this, SystemLog.LOGIN, "用户密码错误==>".concat(username).concat(" p=").concat(pwd), request);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.LOGIN, "用户密码错误==>".concat(username).concat("/").concat(psw), request);
 			session.setAttribute("rs", "passwordError");
 			return "redirect:/gu_ess.jsp";
 		}
 		// 状态：0 正常，1 锁定
 		if (1 == admin.getStatus()) {
-			//SystemLog.log(this, SystemLog.LOGIN, "用户被锁定==>".concat(username).concat(" p=").concat(psw), request);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.LOGIN, "用户被锁定==>".concat(username).concat("/").concat(psw), request);
 			session.setAttribute("rs", "userLocked");
 			return "redirect:/gu_ess.jsp";
 		}
@@ -94,7 +95,7 @@ public class SystemLoginLogout {
 		AdminUserSessionUtil.setAdminSession(request.getSession(), admin);
 		// 设置admin cookie
 		response.addCookie(AdminUserSessionUtil.getServerCookieStr(request, admin.getId().toString()));
-		//SystemLog.log(this, SystemLog.LOGIN, "登陆成功", request);
+		SystemLogUtil.log(adminService, this, SystemLogUtil.LOGIN, "登陆成功==>".concat(username).concat("/").concat(psw), request);
 		return "redirect:/pages/back/jump_springSecurityLogin.jsp";
 	}
 	
@@ -111,7 +112,9 @@ public class SystemLoginLogout {
     public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AdminUser adminUser = AdminUserSessionUtil.getAdminSession(request);
         if (adminUser != null) {
-        	//SystemLog.log(this, SystemLog.LOGOUT, "退出==>", request);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.LOGIN,
+					"用户退出登陆==>".concat(adminUser.getUsername()).concat("/")
+							.concat(adminUser.getPsw()), request);
         }
         Enumeration<String> _enum = request.getSession().getAttributeNames();
         while (_enum.hasMoreElements()) {

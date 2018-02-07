@@ -6,17 +6,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sunflower.back.dao.admin.AdminLogDao;
 import com.sunflower.back.dao.admin.AdminMenusDao;
 import com.sunflower.back.dao.admin.AdminRoleDao;
 import com.sunflower.back.dao.admin.AdminRoleUrlDao;
 import com.sunflower.back.dao.admin.AdminUserDao;
 import com.sunflower.back.dao.admin.AdminUserToRoleDao;
+import com.sunflower.back.domain.admin.AdminLog;
 import com.sunflower.back.domain.admin.AdminMenus;
 import com.sunflower.back.domain.admin.AdminRole;
 import com.sunflower.back.domain.admin.AdminRoleUrl;
 import com.sunflower.back.domain.admin.AdminUser;
 import com.sunflower.back.domain.admin.AdminUserToRole;
 import com.sunflower.back.service.admin.AdminService;
+import com.sunflower.back.support.admin.AdminLogCriteria;
 import com.sunflower.back.support.admin.AdminRoleCriteria;
 import com.sunflower.back.support.admin.AdminUserCriteria;
 import com.sunflower.back.support.admin.AdminUserToRoleCriteria;
@@ -400,4 +403,81 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	/** ************** AdminRoleUrl e *************** */
+	
+	/** ************** AdminLog e *************** */
+	@Autowired
+	private AdminLogDao adminLogDao;
+	/**
+	 * 保存系统日志
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	@Override
+	public Integer saveAdminLog(AdminLog obj) {
+        return (Integer) this.adminLogDao.save(obj);
+    }
+
+	/**
+	 * 根据id删除系统日志
+	 * 
+	 * @param id
+	 */
+	@Override
+    public void removeAdminLog(String id) {
+        this.adminLogDao.deleteById(id);
+    }
+
+    /**
+     * 根据id数组删除系统日志
+     * 
+     * @param ids
+     */
+	@Override
+    public void removeAdminLog(String[] ids) {
+        this.adminLogDao.deleteById(ids);
+    }
+
+    /**
+     * 根据日志对象删除系统日志
+     * 
+     * @param obj
+     */
+	@Override
+    public void removeAdminLog(AdminLog obj) {
+        this.adminLogDao.delete(obj);
+    }
+
+    /**
+     * 更新系统日志
+     * 
+     * @param obj
+     */
+	@Override
+    public void updateAdminLog(AdminLog obj) {
+        this.adminLogDao.update(obj);
+    }
+
+    /**
+     * 查询系统日志
+     * 
+     * @param id
+     * @return
+     */
+	@Override
+    public AdminLog findAdminLog(String id) {
+        return this.adminLogDao.findById(id);
+    }
+
+    /**
+	 * 获取系统日志列表（可分页）
+	 * 
+	 * @param criteria
+	 * @return
+	 */
+	@Override
+    public PagedObject queryAdminLog(AdminLogCriteria criteria) {
+        return this.adminLogDao.queryAdminLog(criteria);
+    }
+    /** ************** AdminLog e *************** */
 }

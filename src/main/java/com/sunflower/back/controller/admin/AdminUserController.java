@@ -17,6 +17,7 @@ import com.sunflower.back.domain.admin.AdminUser;
 import com.sunflower.back.service.admin.AdminService;
 import com.sunflower.back.support.admin.AdminUserCriteria;
 import com.sunflower.back.util.AdminUserSessionUtil;
+import com.sunflower.back.util.SystemLogUtil;
 import com.sunflower.common.base.BaseController;
 import com.sunflower.common.constants.Constants;
 import com.sunflower.common.vo.JsonDetail;
@@ -80,6 +81,7 @@ public class AdminUserController extends BaseController {
 					return "redirect:adminUser_list.h";
 				}
 				this.adminService.deleteAdminUser(Integer.parseInt(id));
+				SystemLogUtil.log(adminService, this, SystemLogUtil.DELETE, "删除管理员:".concat(delIds), request);
 			}
 		}
 		
@@ -160,10 +162,12 @@ public class AdminUserController extends BaseController {
 		// 更新
 		if (adminUser.getId() != null) {
 			this.adminService.updateAdminUser(adminUser);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.UPDATE, "修改管理员:".concat(adminUser.getNickname()).concat("[").concat(adminUser.getUsername()).concat("]"), request);
 		}
 		// 保存
 		else {
 			this.adminService.saveAdminUser(adminUser);
+			SystemLogUtil.log(adminService, this, SystemLogUtil.SAVE, "添加管理员:".concat(adminUser.getNickname()).concat("[").concat(adminUser.getUsername()).concat("]"), request);
 		}
 		return "redirect:adminUser_list.h";
 	}

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.sunflower.back.dao.cms.McCommonDataDao;
@@ -23,22 +24,6 @@ import com.sunflower.common.base.PagedObject;
 @Repository
 public class McCommonDataDaoImpl extends BaseDaoImpl<McCommonData> implements
 		McCommonDataDao {
-
-	/**
-	 * 查询基础数据类型列表（可分页）
-	 * 
-	 * @param criteria
-	 * @return
-	 */
-	@Override
-	public PagedObject query(McCommonDataCriteria criteria) {
-		Map<String, Object> params = new HashMap<String, Object>();
-		StringBuilder sql = this.appSql(params, criteria);
-
-		PagedObject po = this.getPagedObject(sql, criteria.getFirstResult(),
-				criteria.getMaximumResultSize(), params);
-		return po;
-	}
 
 	/**
 	 * 拼凑sql
@@ -69,6 +54,47 @@ public class McCommonDataDaoImpl extends BaseDaoImpl<McCommonData> implements
 			sql.append(" order by mc.id asc");
 		}
 		return sql;
+	}
+	
+	/**
+	 * 根据基础数据类型和基础数据名称获取基础数据
+	 * 
+	 * @param name
+	 * @param type
+	 * @return
+	 */
+	@Override
+	public McCommonData getMcCommonDataByName(String name, Integer type) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		StringBuilder sql = new StringBuilder();
+		sql.append(" from McCommonData mc");
+		sql.append(" where 1=1");
+		if (StringUtils.isNotBlank(name)) {
+			sql.append(" and mc.name = :name");
+			params.put("name", name);
+		}
+		sql.append(" and mc.type = :type");
+		params.put("type", type);
+		Query q = this.createQuery(sql.toString(), params);
+		McCommonData o = (McCommonData) q.uniqueResult();
+		this.clear();
+		return o;
+	}
+	
+	/**
+	 * 查询基础数据类型列表（可分页）
+	 * 
+	 * @param criteria
+	 * @return
+	 */
+	@Override
+	public PagedObject query(McCommonDataCriteria criteria) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		StringBuilder sql = this.appSql(params, criteria);
+
+		PagedObject po = this.getPagedObject(sql, criteria.getFirstResult(),
+				criteria.getMaximumResultSize(), params);
+		return po;
 	}
 
 }

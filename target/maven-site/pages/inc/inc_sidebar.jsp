@@ -96,6 +96,27 @@
 									</li>
 								</ul>
 							</li>
+							
+							<li <c:if test="${fn:startsWith(param.menu, '1-2-')}">class="open"</c:if>>
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+									常见问答管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+			
+								<b class="arrow"></b>
+			
+								<ul class="submenu">
+									<li <c:if test="${fn:startsWith(param.menu, '1-2-1')}">class="active"</c:if>>
+										<a href="/system/cms/mcCommonFaq_list.h">
+											<i class="menu-icon fa fa-caret-right"></i>
+											常见问答
+										</a>
+			
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					

@@ -16,6 +16,15 @@ import com.sunflower.common.base.PagedObject;
 public interface McCommonDataDao extends BaseDao<McCommonData> {
 
 	/**
+	 * 根据基础数据类型和基础数据名称获取基础数据
+	 * 
+	 * @param name
+	 * @param type
+	 * @return
+	 */
+	public McCommonData getMcCommonDataByName(String name, Integer type);
+	
+	/**
 	 * 查询基础数据类型列表（可分页）
 	 * 
 	 * @param criteria

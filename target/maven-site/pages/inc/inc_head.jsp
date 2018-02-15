@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -9,6 +10,8 @@
 		<!-- jquery-ui & bootstrap-datepicker3 -->
 		<link rel="stylesheet" href="/ace/1.4.0/components/_mod/jquery-ui/jquery-ui.css" />
 		<link rel="stylesheet" href="/ace/1.4.0/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+		<!-- 编辑器 -->
+		<link rel="stylesheet" href="/ace/1.4.0/components/_mod/jquery-ui.custom/jquery-ui.custom.css" />
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="/ace/1.4.0/assets/css/ace-fonts.css" />

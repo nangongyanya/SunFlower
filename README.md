@@ -8,6 +8,8 @@
       1.1、基础数据管理
         1.1.1、数据类型
         1.1.2、基础数据
+      1.2、常见问答管理
+      	1.2.1、常见问答
     2、系统功能
       2.1、权限管理
         2.1.1、管理员管理
@@ -18,10 +20,10 @@
 
     截图：
     列表页：
-![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/%E5%88%97%E8%A1%A8%E9%A1%B5.png?raw=true)
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/列表页.png?raw=true)
 
     编辑页：
-![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/%E7%BC%96%E8%BE%91%E9%A1%B5.png?raw=true)
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/编辑页.png?raw=true)
 
     角色成员添加页
 ![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/角色成员添加页.png?raw=true)

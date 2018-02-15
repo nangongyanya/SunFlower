@@ -30,6 +30,12 @@
 		<script src="/ace/1.4.0/components/Flot/jquery.flot.js"></script>
 		<script src="/ace/1.4.0/components/Flot/jquery.flot.pie.js"></script>
 		<script src="/ace/1.4.0/components/Flot/jquery.flot.resize.js"></script>
+		<!-- 编辑器所需 -->
+		<script src="/ace/1.4.0/components/markdown/lib/markdown.js"></script>
+		<script src="/ace/1.4.0/components/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+		<script src="/ace/1.4.0/components/jquery.hotkeys/index.js"></script>
+		<script src="/ace/1.4.0/components/_mod/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
+		<script src="/ace/1.4.0/components/bootbox.js/bootbox.js"></script>
 		
 		<!-- ace scripts -->
 		<script src="/ace/1.4.0/assets/js/src/elements.scroller.js"></script>

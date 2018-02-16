@@ -82,7 +82,7 @@
 									
 									<div>
 										<a href="#" class="btn btn-danger btn-delete-batch"> <i class="ace-icon fa fa-trash-o"></i> 批量取消关联 </a>
-										<a href="adminUserToRole_form.h?roleId=${role.id }" role="button" class="btn btn-primary" data-toggle="modal">
+										<a href="adminUserToRole_form.h?roleId=${role.id }" role="button" class="btn btn-primary">
 											<i class="ace-icon fa fa-plus"></i> 添加成员 </a>
 										</a>
 									</div>

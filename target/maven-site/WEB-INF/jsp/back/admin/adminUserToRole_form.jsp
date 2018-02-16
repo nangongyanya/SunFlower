@@ -6,7 +6,7 @@
 <title>添加角色成员</title>
 <c:import url="/pages/inc/inc_head.jsp" />
 <!-- page specific plugin styles -->
-<link rel="stylesheet" href="/ace/1.4.0/components/bootstrap-duallistbox/dist/bootstrap-duallistbox.css" />
+<link rel="stylesheet" href="/static/ace/1.4.0/components/bootstrap-duallistbox/dist/bootstrap-duallistbox.css" />
 </head>
 
 <body class="no-skin">
@@ -19,7 +19,7 @@
 		<!-- /section:basics/sidebar -->
 		<div class="main-content">
 			<div class="main-content-inner">
-				<c:import url="/pages/inc/inc_breadcrumbs.jsp?menu=角色管理" />
+				<c:import url="/pages/inc/inc_breadcrumbs.jsp?menu=角色管理&showBack=1" />
 
 				<!-- /section:basics/content.breadcrumbs -->
 				<div class="page-content">
@@ -69,7 +69,7 @@
 	<c:import url="/pages/inc/inc_script.jsp" />
 
 	<!-- page specific plugin scripts -->
-	<script src="/ace/1.4.0/components/_mod/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
+	<script src="/static/ace/1.4.0/components/_mod/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">

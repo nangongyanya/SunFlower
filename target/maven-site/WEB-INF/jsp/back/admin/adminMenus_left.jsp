@@ -5,8 +5,8 @@
 	<head>
 		<title>功能菜单管理</title>
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="/ace/1.4.0/assets/css/bootstrap.css" />
-		<link rel="stylesheet" href="/ace/1.4.0/components/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="/static//ace/1.4.0/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="/static//ace/1.4.0/components/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" href="/static/js/xtree/xtree.css" />
 		<script src="/static/js/xtree/map_zh_cn.js"></script>
 		<script src="/static/js/xtree/xtree_zh_cn.js"></script>

@@ -15,7 +15,7 @@
 
 		<div class="main-content">
 			<div class="main-content-inner">
-				<c:import url="/pages/inc/inc_breadcrumbs.jsp?menu=禁止访问提示页" />
+				<c:import url="/pages/inc/inc_breadcrumbs.jsp?menu=禁止访问提示页&showBack=1" />
 
 				<div class="page-content">
 					<div class="page-header">

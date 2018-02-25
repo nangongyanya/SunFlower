@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.sunflower.back.util.AdminUserSessionUtil" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setAttribute("admin", AdminUserSessionUtil.getAdminSession(session));
 %>
@@ -212,7 +213,7 @@
 		
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/ace/1.4.0/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+												<img src="/static/ace/1.4.0/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Susan:</span>
@@ -229,7 +230,7 @@
 		
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/ace/1.4.0/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												<img src="/static/ace/1.4.0/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -246,7 +247,7 @@
 		
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/ace/1.4.0/assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<img src="/static/ace/1.4.0/assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -263,7 +264,7 @@
 		
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/ace/1.4.0/assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<img src="/static/ace/1.4.0/assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -292,9 +293,15 @@
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/ace/1.4.0/assets/avatars/user.jpg" alt="Jason's Photo" />
+								<c:choose>
+									<c:when test="${not empty admin.avatar }">
+										<img class="nav-user-photo" src="${admin.avatar }" alt="管理员头像" />
+									</c:when>
+									<c:otherwise>
+										<img class="nav-user-photo" src="/static/ace/1.4.0/assets/avatars/profile-pic.jpg" alt="管理员头像" />
+									</c:otherwise>
+								</c:choose>
 								<span class="user-info">
-									<small>您好,</small>
 									${admin.nickname}
 								</span>
 		
@@ -335,3 +342,49 @@
 			</div><!-- /.navbar-container -->
 		</div>
 		<!-- /section:basics/navbar.layout -->
+
+		<div id="changeAvatar" class="modal fade" tabindex="-1">
+			<div class="modal-dialog" style="width: 680px;">
+				<div class="modal-content">
+					<div class="modal-header no-padding">
+						<div class="table-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">
+								<span class="white">&times;</span>
+							</button>
+							<span id="modal-title">修改头像</span>
+						</div>
+					</div>
+		
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-9">
+								<div class="img-container">
+									<img>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="docs-preview clearfix">
+									<div class="img-preview preview-lg"></div>
+								</div>
+		
+								<div class="btn-group">
+									<label class="btn btn-primary btn-upload" for="inputImage"
+										title="Upload image file"> <input class="sr-only"
+										id="inputImage" name="file" type="file" accept="image/*">
+										<span class="docs-tooltip" data-toggle="tooltip" title="选择图片">
+											<span class="icon icon-upload"></span> </span> </label>
+									<button class="btn btn-primary" data-method="getCroppedCanvas"
+										type="button">
+										<span class="docs-tooltip" data-toggle="tooltip" title="上传头像">上传头像
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>

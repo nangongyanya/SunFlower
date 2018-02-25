@@ -94,13 +94,13 @@
 
 	<!-- basic scripts -->
 	<!--[if !IE]> -->
-	<script src="/ace/1.4.0/components/jquery/dist/jquery.js"></script>
+	<script src="/static/ace/1.4.0/components/jquery/dist/jquery.js"></script>
 	<!-- <![endif]-->
 	<!--[if IE]>
-	<script src="/ace/1.4.0/components/jquery.1x/dist/jquery.js"></script>
+	<script src="/static/ace/1.4.0/components/jquery.1x/dist/jquery.js"></script>
 	<![endif]-->
 	<script type="text/javascript">
-		if('ontouchstart' in document.documentElement) document.write("<script src='/ace/1.4.0/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
+		if('ontouchstart' in document.documentElement) document.write("<script src='/static/ace/1.4.0/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
 	</script>
 
 	<!-- inline scripts related to this page -->

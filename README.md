@@ -20,13 +20,13 @@
 
     截图：
     列表页：
-![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/列表页.png?raw=true)
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/uploads/screenshot/列表页.png?raw=true)
 
     编辑页：
-![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/编辑页.png?raw=true)
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/uploads/screenshot/编辑页.png?raw=true)
 
     角色成员添加页
-![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/角色成员添加页.png?raw=true)
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/uploads/screenshot/角色成员添加页.png?raw=true)
 
     角色权限管理页
-![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/screenshot/角色权限管理页.png?raw=true)
+![Image text](https://github.com/nangongyanya/SunFlower/blob/master/target/maven-site/uploads/screenshot/角色权限管理页.png?raw=true)

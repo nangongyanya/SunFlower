@@ -1580,10 +1580,10 @@ pre.prettyprint {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: left;
-  vertical-align: top;
   line-height: 15px;
   position: relative;
-  top: 6px;
+  /* vertical-align: top; */
+  /* top: 6px; */
 }
 .user-info small {
   display: block;

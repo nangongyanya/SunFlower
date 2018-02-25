@@ -571,7 +571,7 @@
 															<div class="clearfix">
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="/ace/1.4.0/assets/avatars/user.jpg" />
+																		<img alt="Bob Doe's avatar" src="/static/ace/1.4.0/assets/avatars/user.jpg" />
 																	</div>
 
 																	<div class="body">
@@ -624,7 +624,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Joe Doe's avatar" src="/ace/1.4.0/assets/avatars/avatar2.png" />
+																		<img alt="Joe Doe's avatar" src="/static/ace/1.4.0/assets/avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -677,7 +677,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Jim Doe's avatar" src="/ace/1.4.0/assets/avatars/avatar.png" />
+																		<img alt="Jim Doe's avatar" src="/static/ace/1.4.0/assets/avatars/avatar.png" />
 																	</div>
 
 																	<div class="body">
@@ -730,7 +730,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alex Doe's avatar" src="/ace/1.4.0/assets/avatars/avatar5.png" />
+																		<img alt="Alex Doe's avatar" src="/static/ace/1.4.0/assets/avatars/avatar5.png" />
 																	</div>
 
 																	<div class="body">
@@ -751,7 +751,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="/ace/1.4.0/assets/avatars/avatar2.png" />
+																		<img alt="Bob Doe's avatar" src="/static/ace/1.4.0/assets/avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -772,7 +772,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Susan's avatar" src="/ace/1.4.0/assets/avatars/avatar3.png" />
+																		<img alt="Susan's avatar" src="/static/ace/1.4.0/assets/avatars/avatar3.png" />
 																	</div>
 
 																	<div class="body">
@@ -793,7 +793,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Phil Doe's avatar" src="/ace/1.4.0/assets/avatars/avatar4.png" />
+																		<img alt="Phil Doe's avatar" src="/static/ace/1.4.0/assets/avatars/avatar4.png" />
 																	</div>
 
 																	<div class="body">
@@ -814,7 +814,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alexa Doe's avatar" src="/ace/1.4.0/assets/avatars/avatar1.png" />
+																		<img alt="Alexa Doe's avatar" src="/static/ace/1.4.0/assets/avatars/avatar1.png" />
 																	</div>
 
 																	<div class="body">
@@ -856,7 +856,7 @@
 															<div class="comments">
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's Avatar" src="/ace/1.4.0/assets/avatars/avatar.png" />
+																		<img alt="Bob Doe's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar.png" />
 																	</div>
 
 																	<div class="body">
@@ -912,7 +912,7 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Jennifer's Avatar" src="/ace/1.4.0/assets/avatars/avatar1.png" />
+																		<img alt="Jennifer's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar1.png" />
 																	</div>
 
 																	<div class="body">
@@ -946,7 +946,7 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Joe's Avatar" src="/ace/1.4.0/assets/avatars/avatar2.png" />
+																		<img alt="Joe's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -980,7 +980,7 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Rita's Avatar" src="/ace/1.4.0/assets/avatars/avatar3.png" />
+																		<img alt="Rita's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar3.png" />
 																	</div>
 
 																	<div class="body">
@@ -1050,7 +1050,7 @@
 													<div class="dialogs">
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="/ace/1.4.0/assets/avatars/avatar1.png" />
+																<img alt="Alexa's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar1.png" />
 															</div>
 
 															<div class="body">
@@ -1074,7 +1074,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="John's Avatar" src="/ace/1.4.0/assets/avatars/avatar.png" />
+																<img alt="John's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar.png" />
 															</div>
 
 															<div class="body">
@@ -1098,7 +1098,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Bob's Avatar" src="/ace/1.4.0/assets/avatars/user.jpg" />
+																<img alt="Bob's Avatar" src="/static/ace/1.4.0/assets/avatars/user.jpg" />
 															</div>
 
 															<div class="body">
@@ -1123,7 +1123,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Jim's Avatar" src="/ace/1.4.0/assets/avatars/avatar4.png" />
+																<img alt="Jim's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar4.png" />
 															</div>
 
 															<div class="body">
@@ -1147,7 +1147,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="/ace/1.4.0/assets/avatars/avatar1.png" />
+																<img alt="Alexa's Avatar" src="/static/ace/1.4.0/assets/avatars/avatar1.png" />
 															</div>
 
 															<div class="body">

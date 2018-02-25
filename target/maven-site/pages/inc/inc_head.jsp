@@ -12,6 +12,9 @@
 		<link rel="stylesheet" href="/static/ace/1.4.0/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
 		<!-- 编辑器 -->
 		<link rel="stylesheet" href="/static/ace/1.4.0/components/_mod/jquery-ui.custom/jquery-ui.custom.css" />
+		<!-- 图片裁剪控件cropper -->
+		<link rel="stylesheet" href="/static/cropper/dist/cropper.css">
+		<link rel="stylesheet" href="/static/cropper/demo/css/main.css">
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="/static/ace/1.4.0/assets/css/ace-fonts.css" />

@@ -171,5 +171,40 @@ public class AdminUserController extends BaseController {
 		}
 		return "redirect:adminUser_list.h";
 	}
+	
+	/**
+	 * 修改管理员头像
+	 * 
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/ajax_changeavatar")
+	public String ajaxChangeavatar(ModelMap model, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		JsonDetail json = new JsonDetail();
+		try {
+			String imgBase = request.getParameter("imgBase");
+			if (StringUtils.isEmpty(imgBase)) {
+				json.setInfo("参数不完整!");
+				json.setStatus(false);
+				return this.json2Response(json, response);
+			}
+
+			AdminUser adminUser = AdminUserSessionUtil.getAdminSession(request.getSession());
+			adminUser.setAvatar(imgBase);
+			this.adminService.updateAdminUser(adminUser);
+			json.setStatus(true);
+			json.setItems(adminUser);
+		} catch (Exception e) {
+			log.error("异步获取管理员出错 --> ", e);
+			e.printStackTrace();
+			json.setStatus(false);
+			json.setInfo("数据出错");
+		}
+		return this.json2Response(json, response);
+	}
 
 }

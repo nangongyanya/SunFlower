@@ -55,5 +55,10 @@
                 <comment>组织部门id</comment>
             </column>
         </property>
+        <property name="avatar" type="string">
+            <column name="avatar">
+                <comment>头像</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

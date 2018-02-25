@@ -113,7 +113,14 @@
 															<div class="row">
 																<div class="col-xs-12 col-sm-2">
 																	<div class="text-center">
-																		<img height="150" class="thumbnail inline no-margin-bottom" alt="Domain Owner's Avatar" src="/ace/1.4.0/assets/avatars/profile-pic.jpg" />
+																		<c:choose>
+																			<c:when test="${not empty info.adminUser.avatar }">
+																				<img height="150" class="thumbnail inline no-margin-bottom" alt="管理员头像" src="${info.adminUser.avatar }" />
+																			</c:when>
+																			<c:otherwise>
+																				<img height="150" class="thumbnail inline no-margin-bottom" alt="管理员头像" src="/static/ace/1.4.0/assets/avatars/profile-pic.jpg" />
+																			</c:otherwise>
+																		</c:choose>
 																		<br />
 																		<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 																			<div class="inline position-relative">

@@ -54,6 +54,7 @@ public class AdminLogDaoImpl extends BaseDaoImpl<AdminLog> implements AdminLogDa
 			sql.append(" and al.optType = :optType");
 			params.put("optType", criteria.getOptType());
 		}
+		sql.append(" order by id desc");
 		return sql;
 	}
 }

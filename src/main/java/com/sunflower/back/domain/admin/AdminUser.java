@@ -23,6 +23,7 @@ public class AdminUser implements java.io.Serializable {
 	private String lastLoginIp;
 	private Integer status;
 	private Integer groupId;
+	private String avatar;
 
 	public AdminUser() {
 	}
@@ -129,6 +130,14 @@ public class AdminUser implements java.io.Serializable {
 
 	public void setGroupId(Integer groupId) {
 		this.groupId = groupId;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 }

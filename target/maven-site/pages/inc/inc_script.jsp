@@ -9,6 +9,14 @@
 		<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='/static/ace/1.4.0/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
+		
+			$(function(){
+				$('.nav-user-photo').on('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					$('#changeAvatar').modal('show');
+				});
+			});
 		</script>
 		<script src="/static/ace/1.4.0/components/bootstrap/dist/js/bootstrap.js"></script>
 		
@@ -36,6 +44,9 @@
 		<script src="/static/ace/1.4.0/components/jquery.hotkeys/index.js"></script>
 		<script src="/static/ace/1.4.0/components/_mod/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
 		<script src="/static/ace/1.4.0/components/bootbox.js/bootbox.js"></script>
+		<!-- 图片裁剪控件cropper -->
+		<script src="/static/cropper/dist/cropper.js"></script>
+  		<script src="/static/cropper/demo/js/main.js"></script>
 		
 		<!-- ace scripts -->
 		<script src="/static/ace/1.4.0/assets/js/src/elements.scroller.js"></script>
